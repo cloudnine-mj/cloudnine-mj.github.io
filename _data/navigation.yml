@@ -23,7 +23,7 @@ header:
       fr-LU   : *FR
       tr      : &TR       Ana Sayfa
       # @end locale config
-    url: /
+    url:
 
   - titles:
       # @start locale config
