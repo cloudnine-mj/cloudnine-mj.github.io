@@ -23,7 +23,7 @@ header:
       fr-LU   : *FR
       tr      : &TR       Hakkında
       # @end locale config
-    url: /HOME.html
+    url: /about.html
   
   - titles:
       # @start locale config
@@ -49,6 +49,6 @@ header:
       fr-LU   : *FRS
       tr      : &TR       Arşivdekiler
       # @end locale config
-    url: /ARCHIVE.html
+    url: /archive.html
 
   
