@@ -62,7 +62,7 @@ tags: [SQLD]
     * 날짜와 시각 데이터(Oracle은 DATE, SQL server는 DATETIME)
     * Oracle은 1초 단위, SQL server는 3.33ms(milli-second) 단위 관리
 
-### DDL의 명령어
+### 2. DDL의 명령어
 
 * 유형에 따라 생성, 수정, 삭제로 나눌 수 있음
 * 유형별 명령어: **CREATE, ALTER, DROP, TRUNCATE**
