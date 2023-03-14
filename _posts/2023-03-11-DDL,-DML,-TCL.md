@@ -1,0 +1,133 @@
+---
+key: jekyll-text-theme
+title: 'SQLD - DDL, DML, TCL'
+excerpt: ''
+tags: [SQLD]
+---
+
+
+
+
+
+글로만 공부하려니 와닿지 않음:confused:
+
+실습하면서 SQL 익히기:fire:
+
+
+
+:mag_right: **SQL 실습 사이트 :** [https://livesql.oracle.com/apex/f?p=590:1000](https://livesql.oracle.com/apex/f?p=590:1000)
+
+:mag_right: **실습용 DB(Oracle) 설치 :** [https://www.oracle.com/database/technologies/xe-downloads.html]( https://www.oracle.com/database/technologies/xe-downloads.html)
+
+:mag_right: **SQL 관리툴(Toad) 설치 :** [https://www.toadworld.com/downloads](https://www.toadworld.com/downloads)
+
+
+
+## DDL(Data Definition Language)
+
+### 1. DDL의 개념 및 대상
+
+#### DDL의 개념
+
+* DDL은 데이터베이스의 테이블과 같은 데이터 구조나 구성 요소를 생성, 삭제, 변경하는 언어
+
+#### DDL의 대상
+
+| DDL 대상       | 설명                                                         |
+| -------------- | ------------------------------------------------------------ |
+| 테이블 (Table) | - 데이터를 저장하는 기본 저장 단위<br/>- 행과 열로 구성      |
+| 뷰(View)       | 하나 이상의 물리 테이블에서 유도되는 가상의 테이블           |
+| 인덱스(Index)  | 검색 속도를 향상시키기 위한 데이터베이스 오브젝트            |
+| 스키마(schema) | 데이터베이스의 구조와 제약 조건에 관한 전반적인 명세를 기술한 메타데이터 집합 |
+
+#### 데이터 유형
+
+* 컬럼을 정의할 때 선언한 데이터 유형은 해당 컬럼이 받아들일 수 있는 자료의 유형을 규정
+* 선언한 데이터 유형이 아닌 다른 유형의 데이터가 입력되거나 지정한 데이터의 크기를 넘어서는 자료가 입력되면 에러가 발생함
+* 대표적인 데이터 유형
+  * **CHARACTER(size)**
+    * 길이가 size 바이트(byte)인 고정 길이 문자 데이터(Oracle과 SQL server는 CHAR로 표현)
+    * 기본 및 최소 size는 1바이트, 최대사이즈는 Oracle은 2000바이트, SQL Server는 8000 바이트
+    * size만큼 최대 길이를 갖고 고정 길이를 가지므로 할당된 변수값의 길이가 size보다 작을 경우에는 그 차이 길이만큼 공간으로 채워짐
+  * **VARCHAR(size)**
+    * CHARCTER VARYING의 약자(가변 길이 문자 데이터)
+    * ORACLE -> VARCHAR2(size), SQL server -> VARCHAR(size)
+    * 기본 및 최소 size는 1바이트, 최대사이즈는 Oracle은 4000바이트, SQL Server는 8000 바이트
+    * size 만큼 최대 길이를 가질 수 있지만, 가변 길이로 조정되므로 할당된 변수값의 바이트만 적용됨
+  * **NUMERIC**
+    * 정수, 실수 등의 숫자데이터
+    * ORACLE NUMERIC(p,s)의 형태로 사용 (p: 전체 자리수, s: 소수 부분 자릿수 지정)
+    * SQL server는 10가지 이상의 숫자 타입을 가지고 있음
+  * **DATETIME**
+    * 날짜와 시각 데이터(Oracle은 DATE, SQL server는 DATETIME)
+    * Oracle은 1초 단위, SQL server는 3.33ms(milli-second) 단위 관리
+
+### DDL의 명령어
+
+* 유형에 따라 생성, 수정, 삭제로 나눌 수 있음
+* 유형별 명령어: **CREATE, ALTER, DROP, TRUNCATE**
+
+| 유형 | 명령어   | 설명                                        |
+| ---- | -------- | ------------------------------------------- |
+| 생성 | CREATE   | 새로운 데이터베이스 개체 생성               |
+| 수정 | ALTER    | 이미 존재하는 데이터베이스 개체에 대한 변경 |
+| 삭제 | DROP     | 이미 존재하는 데이터베이스 객체 삭제        |
+| 삭제 | TRUNCATE | 데이터베이스 개체에서 내용 삭제             |
+
+#### ① CREATE 명령어
+
+* 데이터베이스, 테이블, 인덱스 등을 생성하는 명령어
+
+* :mag_right: **CREATE TABLE 문법**
+
+  * 테이블 이름, 컬럼 목록, 데이터 유형 등을 명시하여 테이블 생성
+  * 구성요소
+    * 데이터 유형: CHAR, VARCHAR 등
+    * [NOT NULL] : NULL 값 허용 여부
+    * PRIMARY KEY: 기본키 선언
+    * UNIQUE: 고유키(테이블에 저장된 행 데이터를 고유하게 식별하기 위한 키) 설정
+
+* 테이블 생성 시 주의사항
+
+  * 적절한 이름
+    * 테이블의 이름은 객체를 의미할 수 있는 적절한 이름을 사용
+    * 가능한 단수형 사용
+  * 테이블 이름 중복
+    * 다른 테이블과 이름이 중복되지 않도록 함
+  * 컬럼 이름 중복
+    * 한 테이블 안에서는 컬럼 이름이 중복될 수 없음
+  * 데이터 유형
+    * 컬럼 뒤에 데이터 유형을 반드시 지정
+  * 문자로 시작
+    * 테이블 이름과 컬럼 이름은 반드시 문자로 시작
+    * 데이터베이스 공급업체별로 이름 길이에 대한 제한 있음
+  * 예약어
+    * 공급업체에서 사전에 정의한 예약어는 사용 불가
+    * A-Z, a-z, 0-9, $, # 문자만 허용
+
+* :mag_right: **제약 조건**
+
+  * 제약 조건은 사용자가 원하는 조건의 데이터만 유지하기 위한 방법
+
+  * 제약 조건은 테이블의 특정 컬럼에 설정하는 제약
+
+  * 제약 조건의 종류
+
+    | 종류                | 설명                                                         |
+    | ------------------- | ------------------------------------------------------------ |
+    | PRIMARY KEY(기본키) | - 테이블에 저장된 행 데이터를 고유하게 식별하기 위한 기본키 정의<br/>- 하나의 테이블에 하나의 기본키 제약만 정의 가능<br/>- 기본키는 단일 컬럼 또는 여러 개의 컬럼으로 구성 가능<br/>- 기본키 제약을 정의하면 DBMS는 자동으로 UNIQUE 인덱스를 생성<br/>- 기본키를 구성하는 컬럼에는 NULL 입력 불가<br/>- PRIMARY KEY = UNIQUE KEY & NOT NULL |
+    | UNIQUE KEY(고유키)  | - 테이블에 저장된 행 데이터를 고유하게 식별하기 위한 고유키 정의<br/>- NULL은 고유키 제약의 대상이 아님(NULL 입력 가능) |
+    | NOT NULL            | NULL 값 입력 금지                                            |
+    | CHECK               | - 입력할 수 있는 값의 범위 등을 제한<br/>- CHECK 제약으로는 TRUE & FALSE로 평가할 수 있는 논리식을 지정 |
+    | FOREIGN KEY(외래키) | 관계형 데이터베이스에서 테이블 간의 관계를 정의하기 위해 기본키를 다른 테이블의 외래키로 복사하여 생성 |
+    | DEFAULT             | - 해당 필드의 기본값을 설정<br/>- 데이터를 입력할 때 (INSERT) 컬럼의 값이 지정되지 않았을 때 자동으로 입력될 기본값(DEFAULT)을 설정 |
+
+    
+
+
+
+<br/>
+
+> **REFERENCE**
+>
+> 수제비 SQLD,  정보처리기술사연구회 지음
