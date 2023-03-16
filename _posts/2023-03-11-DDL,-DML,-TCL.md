@@ -11,6 +11,8 @@ tags: [SQLD]
 
 
 
+
+
 :mag_right: **SQL 실습 사이트 :** [https://livesql.oracle.com/apex/f?p=590:1000](https://livesql.oracle.com/apex/f?p=590:1000)
 
 :mag_right: **실습용 DB(Oracle) 설치 :** [https://www.oracle.com/database/technologies/xe-downloads.html]( https://www.oracle.com/database/technologies/xe-downloads.html)
@@ -111,7 +113,19 @@ tags: [SQLD]
     | FOREIGN KEY(외래키) | 관계형 데이터베이스에서 테이블 간의 관계를 정의하기 위해 기본키를 다른 테이블의 외래키로 복사하여 생성 |
     | DEFAULT             | - 해당 필드의 기본값을 설정<br/>- 데이터를 입력할 때 (INSERT) 컬럼의 값이 지정되지 않았을 때 자동으로 입력될 기본값(DEFAULT)을 설정 |
 
+* 무결성
+
+  * 무결성: 데이터베이스에 저장된 값들이 정확하고 일관성 있는 데이터임을 나타내는 특성
+
+  * 무결성의 종류
+
+    | 종류        | 설명                                                         | DBMS 제약 조건      |
+    | ----------- | ------------------------------------------------------------ | ------------------- |
+    | 개체 무결성 | - 기본키 제약이라고도 함<br/>- 하나의 테이블에 중복된 행이 존재하지 않도록 규정 | UNIQUE, PRIMARY KEY |
+    | 참조 무결성 | - 행을 입력, 수정, 삭제할 때 연관된 다른 테이블과의 데이터가 정확하게 유지되도록 규정<br/>- 참조 관계에 있는 두 테이블의 데이터가 항상 일관된 값을 가져야 함 | FOREIGN KEY         |
+
     
+
 
 
 
