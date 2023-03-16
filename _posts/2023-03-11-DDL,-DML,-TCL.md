@@ -6,8 +6,11 @@ tags: [SQLD]
 ---
 
 
+:mag_right: **SQL 실습 사이트 :** [https://livesql.oracle.com/apex/f?p=590:1000](https://livesql.oracle.com/apex/f?p=590:1000)
 
-습하면서 SQL 익히기:fire:
+:mag_right: **실습용 DB(Oracle) 설치 :** [https://www.oracle.com/database/technologies/xe-downloads.html]( https://www.oracle.com/database/technologies/xe-downloads.html)
+
+:mag_right: **SQL 관리툴(Toad) 설치 :** [https://www.toadworld.com/downloads](https://www.toadworld.com/downloads)
 
 
 
