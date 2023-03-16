@@ -7,11 +7,7 @@ tags: [SQLD]
 
 
 
-
-
-글로만 공부하려니 와닿지 않음:confused:
-
-실습하면서 SQL 익히기:fire:
+습하면서 SQL 익히기:fire:
 
 
 
