@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'NAVER Cloud Platform Study'
 excerpt: 'NAVER Cloud Platform 서비스 정리'
-tags: [NAVER Cloud], [NCP]
+tags: [NAVER Cloud, NCP]
 ---
 
 
@@ -15,3 +15,4 @@ NAVER Cloud Platform 서비스를 정리해보기로 했다.
 
 
 ## NAVER Cloud Platform 서비스 정리
+
