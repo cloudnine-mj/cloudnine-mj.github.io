@@ -1,8 +1,8 @@
 ---
 key: jekyll-text-theme
-title: 'AWS Study22'
-excerpt: ''
-tags: [AWS]
+title: 'NAVER Cloud Platform Study'
+excerpt: 'NAVER Cloud Platform 서비스 정리'
+tags: [NAVER Cloud], [NCP]
 ---
 
 
