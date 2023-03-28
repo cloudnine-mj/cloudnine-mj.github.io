@@ -71,7 +71,7 @@ tags: [AWS, SAA, cloud, study]
 
   ​	<img src ="https://user-images.githubusercontent.com/113915835/228241855-9c6b16c6-bf4c-4b79-b7b7-d3bae16d3a32.png" width = "80%">
 
-  * IAM으로 로그인 하기 전에 **IAM 서비스로 접속 > IAM  대시보드 > 계정 별칭 > [생성]** 버튼으로 계정 별칭 생성하면 IAM 로그인 시 편리합니다.
+  * IAM 사용자로 로그인 하기 전에 **IAM 서비스로 접속 > IAM  대시보드 > 계정 별칭 > [생성]** 버튼으로 계정 별칭 생성하면 IAM 로그인 시 편리합니다.
 
   
 
