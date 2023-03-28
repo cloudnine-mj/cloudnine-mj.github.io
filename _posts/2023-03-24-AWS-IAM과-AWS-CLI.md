@@ -31,17 +31,17 @@ tags: [AWS, SAA, cloud, study]
 
   * 루트 사용자는 계정에 대한 모든 권한을 가지고 있기 때문에 무엇이든 할 수 있고, 위험한 계정이 될 수 있습니다. (보안상의 이유로 별도의 관리자 계정을 만드는 게 좋음)
 
-* **Users 설정 방법**
+#### **Users 설정 방법**
 
-  #### ① AWS 콘솔 로그인
+  ##### ① AWS 콘솔 로그인
 
-  #### ② IAM 서비스로 접속
+  ##### ② IAM 서비스로 접속
 
-  #### ③ Access Management (IAM 대시보드)
+  ##### ③ Access Management (IAM 대시보드)
 
-  #### ④ Users
+  ##### ④ Users
 
-  #### ⑤ Add users
+  ##### ⑤ Add users
 
   ​	<img src="https://user-images.githubusercontent.com/113915835/228215034-c66ca5e2-0d3e-46e0-b82a-caf8ffbe7903.png" width="80%">
 
@@ -51,7 +51,7 @@ tags: [AWS, SAA, cloud, study]
 
   * 자격 증명 방식을 선택할 때는 비밀번호 방식 자격 증명을 활성화합니다. 자동생성을 할 수도 있고, 직접 입력할 수도 있습니다.
 
-  #### ⑥ Create Group
+  ##### ⑥ Create Group
 
   ​	<img src = "https://user-images.githubusercontent.com/113915835/228222067-6a7f1e7c-3e04-4e63-a36a-ff0efac4a18e.png" width="80%">
 
@@ -61,17 +61,17 @@ tags: [AWS, SAA, cloud, study]
   * 그룹의 권한은 정책을 통해 정의됩니다.
   * 모든 사용자는 그룹에 속하게 하고 관리하는 것이 좋습니다.
 
-  #### ⑦ Create User
+  ##### ⑦ Create User
 
   ​	<img src ="https://user-images.githubusercontent.com/113915835/228224726-e51f26e8-4124-4b03-a428-365cd0288732.png" width ="80%">
 
   > 리소스 검색, 비용 분석, 보안 강화 등 다양한 용도로 태그 사용 가능 (선택 사항)
 
-  #### ⑧ IAM으로 로그인 하기
+  ##### ⑧ IAM으로 로그인 하기
 
   ​	<img src ="https://user-images.githubusercontent.com/113915835/228241855-9c6b16c6-bf4c-4b79-b7b7-d3bae16d3a32.png" width = "80%">
 
-  * IAM 사용자로 로그인 하기 전에 **IAM 서비스로 접속 > IAM  대시보드 > 계정 별칭 > [생성]** 버튼으로 계정 별칭 생성하면 IAM 로그인 시 편리합니다.
+  * IAM 사용자로 로그인 하기 전에 **IAM 서비스로 접속 > IAM  대시보드 > 계정 별칭 > [생성]** 버튼으로 계정 별칭 생성하면 IAM 사용자 로그인 시 편리합니다.
 
   
 
