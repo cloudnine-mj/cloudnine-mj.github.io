@@ -65,7 +65,7 @@ tags: [AWS, SAA, cloud, study]
 
   > 리소스 검색, 비용 분석, 보안 강화 등 다양한 용도로 태그 사용 가능 (선택 사항)
 
-#### ⑧ IAM으로 로그인 하기
+##### ⑧ IAM으로 로그인 하기
 
   ​	<img src ="https://user-images.githubusercontent.com/113915835/228241855-9c6b16c6-bf4c-4b79-b7b7-d3bae16d3a32.png" width = "80%">
 
