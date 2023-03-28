@@ -33,7 +33,7 @@ tags: [AWS, SAA, cloud, study]
 
 ### **Users 설정 방법**
 
-#### ① AWS 콘솔 로그인
+##### ① AWS 콘솔 로그인
 
 #### ② IAM 서비스로 접속
 
@@ -46,8 +46,6 @@ tags: [AWS, SAA, cloud, study]
   ​	<img src="https://user-images.githubusercontent.com/113915835/228215034-c66ca5e2-0d3e-46e0-b82a-caf8ffbe7903.png" width="80%">
 
   ​    <img src="https://user-images.githubusercontent.com/113915835/228220781-088ba3e4-b933-40b1-9e2f-166a63bd2fe3.png" width="80%">
-
-  ​	
 
   * 자격 증명 방식을 선택할 때는 비밀번호 방식 자격 증명을 활성화합니다. 자동생성을 할 수도 있고, 직접 입력할 수도 있습니다.
 
