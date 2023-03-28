@@ -92,7 +92,7 @@ tags: [AWS, SAA, cloud, study]
     * **Resource**: 적용될 Action의 리소스 목록 :star:
     * **Condition**: Statement가 언제 적용될 지 결정
 
-### MFA
+## MFA
 
 * **MFA = Multi-Factor Authentication**
 
@@ -126,19 +126,19 @@ tags: [AWS, SAA, cloud, study]
 
     * AWS 제 3자 회사 SurePassID가 제공
 
-### IAM Roles
+## IAM Roles
 
 * IAM Role은 실제 사람이 사용하도록 만들어진 것이 아니고, AWS 서비스에 의해 사용되도록 만들어졌습니다.
 * EC2 인스턴스(가상서버)가 AWS에서 작업을 수행하기 위해서는 EC2 인스턴스에 권한을 부여해야 하며, 이때 IAM Role을 만들어서 하나의 개체로 만듭니다. 이후 EC2 인스턴스가 AWS에 있는 어떤 정보에 접근하려고 할 때 IAM Role을 사용하게 됩니다.
 
-### IAM Security Tools
+## IAM Security Tools
 
 * IAM Credentials Report (IAM 자격 증명 보고서)
   * 계정에 있는 사용자와 다양한 Credential 들의 상태를 포함하고 있습니다.
 * IAM Access Advisor
   * 사용자에게 부여된 서비스의 권한과 해당 서비스에 마지막으로 액세스한 시간을 보여줍니다. 
 
-### IAM Guideline & Best Practices
+## IAM Guideline & Best Practices
 
 * 루트 계정은 AWS 계정을 설정할 때를 제외하고 사용하지 않는 것이 좋습니다.
 * 하나의 AWS 사용자는 한 명의 실제 사용자를 의미하므로, 1인 1계정으로 하는 것이 좋습니다.
