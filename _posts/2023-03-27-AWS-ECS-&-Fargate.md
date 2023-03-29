@@ -25,10 +25,9 @@ tags: [AWS, SAA, cloud, study]
 <img src = "https://user-images.githubusercontent.com/113915835/228443511-ff452282-2669-49d6-bae4-e3696ebf9c55.png" width = "70%">
 
 * EC2 Launch Type으로 EC2 클러스터를 사용할 때는 사용자가 인프라를 직접 프로비저닝, 유지해야 함.
-
-- ECS 인스턴스는 각각 ECS 에이전트(Agent)를 실행해야 함.
+* ECS 인스턴스는 각각 ECS 에이전트(Agent)를 실행해야 함.
   - ECS 에이전트가 각각의 EC2 인스턴스를 Amazon ECS 서비스와 지정된 ECS 클러스터에 등록
-- 도커 컨테이너는 미리 프로비저닝한 ec2 인스턴스에 위치
+* 도커 컨테이너는 미리 프로비저닝한 EC2 인스턴스에 위치
 
 
 
@@ -42,7 +41,7 @@ tags: [AWS, SAA, cloud, study]
 
 > **참고**
 >
->  AWS에 도커 컨테이너를 실행하는데인프라를 프로비저닝하지 않아 관리할 EC2 인스턴스가 없음(서버리스)
+> AWS에 도커 컨테이너를 실행하는데인프라를 프로비저닝하지 않아 관리할 EC2 인스턴스가 없음(서버리스)
 >
 > but, 서버를 관리하지 않아 서버리스라 부르는데 서버가 없는 건 아님
 
