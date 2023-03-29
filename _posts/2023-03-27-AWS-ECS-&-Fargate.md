@@ -20,10 +20,6 @@ tags: [AWS, SAA, cloud, study]
   * EC2 Launch Type
   * Fargate Launch Type
 
-* IAM 정책에 따라 보안 강화 가능
-
-* ECS Task Auto Scaling 가능
-
 ### EC2 Launch Type
 
 <img src = "https://user-images.githubusercontent.com/113915835/228443511-ff452282-2669-49d6-bae4-e3696ebf9c55.png" width = "70%">
