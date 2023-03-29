@@ -29,7 +29,19 @@ tags: [AWS, SAA, cloud, study]
 
 <img src ="https://user-images.githubusercontent.com/113915835/228460185-08760725-e7c5-428c-85a7-1becb7523be5.png" width = "80%">
 
+## AWS CloudFront 소개
 
+* **Cloud Front = Content Delivery Network**
+* 사용자로부터 가까운 엣지 로케이션(전송 지점; 216개) 을 사용하여 빠르고 안정적인 콘텐츠 전송하는 서비스
+
+## AWS CloudFront 특징
+
+- 웹사이트의 컨텐츠를 서로 다른 엣지 로케이션에 미리 캐싱하여 읽기 성능을 높이는 것
+- DDos 공격에서 보호받을 수 있음
+
+## AWS CloudFront
+
+<img src = "https://user-images.githubusercontent.com/113915835/228462833-85b946c2-979c-46c4-aa19-8e8abcf800a5.png" width = "80%">
 
 
 
