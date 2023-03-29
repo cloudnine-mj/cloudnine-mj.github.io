@@ -107,6 +107,12 @@ tags: [AWS, SAA, cloud, study]
 
 <img src = "https://user-images.githubusercontent.com/113915835/228431407-1ab8557d-3afe-4ea9-98ff-176a2afcb8e1.png" width = "80%">
 
+### SQS vs SNS vs Kinesis
+
+<img src ="https://user-images.githubusercontent.com/113915835/228432222-b308a9f9-3970-4922-9b16-5e840999db38.png" width = "80%">
+
+ 
+
 <br/>
 
 
