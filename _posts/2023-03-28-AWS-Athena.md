@@ -7,9 +7,11 @@ tags: [AWS, SAA, cloud, study]
 
 
 
-# Analytics
+:fire: 서버리스 SQL 엔진을 사용한 Amazon S3 데이터 분석이 나오면 Athena를 떠올리기!! (TIP)
 
-:fire: 서버리스 SQL 엔진을 사용한 Amazon S3 데이터 분석이 나오면 Athena를 떠올리기
+
+
+# Analytics
 
 ## AWS Athena 소개
 
