@@ -36,6 +36,22 @@ tags: [AWS, SAA, cloud, study]
 
 
 
+### Fargate Launch Type
+
+<img src = "https://user-images.githubusercontent.com/113915835/228445041-a4a182fa-997d-4443-bbc2-d7e3dd27617f.png" width="70%">
+
+* Fargate 유형은 ECS 클러스터가 있을 때, ECS 태스크 정의만 생성하면 필요한 CPU나 RAM에 따라 ECS 태스크를 AWS가 대신 실행
+  * 새 도커 컨테이너를 실행하면 어디서 실행되는지 알리지 않고 그냥 실행됨
+  * 작업을 위해 백엔드에 EC2 인스턴스가 생성될 필요 없음
+
+> **참고**
+>
+>  AWS에 도커 컨테이너를 실행하는데인프라를 프로비저닝하지 않아 관리할 EC2 인스턴스가 없음(서버리스)
+>
+> but, 서버를 관리하지 않아 서버리스라 부르는데 서버가 없는 건 아님
+
+
+
 
 
 <br/>
