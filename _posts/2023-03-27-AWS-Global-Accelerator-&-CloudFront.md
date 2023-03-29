@@ -1,6 +1,6 @@
 ---
 key: jekyll-text-theme
-title: 'AWS Global Accelerator'
+title: 'AWS Global Accelerator & CloudFront'
 excerpt: 'AWS Study 서비스 정리 - AWSKRUG Beginner Certification Study 😎'
 tags: [AWS, SAA, cloud, study] 
 ---
@@ -20,7 +20,7 @@ tags: [AWS, SAA, cloud, study]
 
 ## AWS Global Accelerator 특징
 
-- 애니캐스트 IP → 모든 서버가 동일한 IP 주소를 가지며 클라이언트는 가장 가까운 서버로 라우팅
+- 애니캐스트 IP -> 모든 서버가 동일한 IP 주소를 가지며 클라이언트는 가장 가까운 서버로 라우팅
 - 사용자와 가장 가까운 엣지 로케이션으로 트래픽 직접 전송하여 ALB에 도달
 
 
