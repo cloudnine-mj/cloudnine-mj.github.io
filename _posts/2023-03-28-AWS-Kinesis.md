@@ -101,7 +101,11 @@ tags: [AWS, SAA, cloud, study]
   - 3rd-party
   - custom
 
+### Kinesis Data Stream vs SQS FIFO
 
+* SQS FIFO queues: 순서가 중요한 어플리케이션에 적합 
+
+* Kinesis: 대규모 정보 실시간 처리와 분석이 필요할때 사용 적합 
 
 ### Kinesis Data Streams vs Firehose
 
