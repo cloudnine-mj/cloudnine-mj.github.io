@@ -131,7 +131,7 @@ tags: [AWS, SAA, cloud, study]
 * IAM Role은 실제 사람이 사용하도록 만들어진 것이 아니고, AWS 서비스에 의해 사용되도록 만들어졌습니다.
 * EC2 인스턴스(가상서버)가 AWS에서 작업을 수행하기 위해서는 EC2 인스턴스에 권한을 부여해야 하며, 이때 IAM Role을 만들어서 하나의 개체로 만듭니다. 이후 EC2 인스턴스가 AWS에 있는 어떤 정보에 접근하려고 할 때 IAM Role을 사용하게 됩니다.
 
-## IAM Security Tools
+## IAM 보안 Tools
 
 * IAM Credentials Report (IAM 자격 증명 보고서)
   * 계정에 있는 사용자와 다양한 Credential 들의 상태를 포함하고 있습니다.

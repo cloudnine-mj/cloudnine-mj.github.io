@@ -41,7 +41,7 @@ tags: [AWS, SAA, cloud, study]
 
 <img src = "https://user-images.githubusercontent.com/113915835/228441006-a3fd3c4f-6a0c-4508-bfcf-2d84d70fa11e.png" width = "80%">
 
-## Security
+## 보안
 
 - Cognito
 

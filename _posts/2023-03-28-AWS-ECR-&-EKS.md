@@ -45,12 +45,12 @@ tags: [AWS, SAA, cloud, study]
 
 <img src = "https://user-images.githubusercontent.com/113915835/228448413-44b3ab45-6990-404f-b96e-3efa76dcaa93.png" width = "80%">
 
-### Node Types
+### 노드 Types
 
 - **관리형 노드 그룹**: EKS에서 관리하는 노드
   - AWS로 노드, 즉 EC2 인스턴스를 생성하고 관리
 - **Self-managed Node**: 직접 EKS에 등록한 노드
-  - 사용자 지정 사항이 많고 제어 대상이 많은 경우 여러분이 직접 노드를 생성하고 EKS 클러스터에 등록한 다음 ASG의 일부로 관리해야 함.
+  - 사용자 지정 사항이 많고 제어 대상이 많은 경우 사용자가 직접 노드를 생성하고 EKS 클러스터에 등록한 다음, ASG의 일부로 관리해야 함.
   - 사전 빌드된 AMI인 Amazon EKS 최적화 AMI를 사용하면 시간을 절약할 수 있음.
 - **AWS fargate**: 노드 없이 EKS위에 컨테이너 띄움, 유지 및 관리 필요 없음 (노드를 원하지 않는 경우)
 
