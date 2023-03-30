@@ -59,7 +59,11 @@ tags: [AWS, SAA, cloud, study]
 * 회사가 온프레미스나 클라우드에서 Kubernetes나 Kubernetes API를 사용중일 때 Kubernetes 클러스터를 관리하기 위해 Amazon EKS를 사용
 * Kubernetes는 클라우드 애그노스틱으로 Azure, Google Cloud 등 모든 클라우드에서 지원됨
 
-
+> **애그노스틱 기술(agnostic technology)**
+>
+> ‘애그노스틱 (Agnostic)’은 '구애받지 않는' 이라는 사전적 의미를 가지고 있음. 천 가지가 넘는 변수에 구애받지 않으며 클라우드의 복잡한 인프라 특성을 해결할 수 있는 기술
+>
+> 참조: [https://blog.naver.com/n_cloudplatform/222988261555](https://blog.naver.com/n_cloudplatform/222988261555)
 
 <br/>
 
