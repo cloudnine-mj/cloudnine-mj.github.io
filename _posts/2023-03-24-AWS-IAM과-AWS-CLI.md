@@ -126,13 +126,13 @@ tags: [AWS, SAA, cloud, study]
 
     * AWS 제 3자 회사 SurePassID가 제공
 
-### AWS에 액세스하는 방법 
+## AWS에 액세스하는 방법 
 
 AWS에 액세스 하는 방법은 아래와 같이 총 세 가지가 있음
 
-* AWS Management Console: 사용자 이름 및 비밀번호와 다요소 인증(MFA)으로 보호됨)
+* **AWS Management Console**: 사용자 이름 및 비밀번호와 다요소 인증(MFA)으로 보호됨)
 
-* AWS CLI (Command Line lnterface): 액세스 키에 의해 보호  
+* **AWS CLI (Command Line lnterface)**: 액세스 키에 의해 보호  
 
   * AWS CLI를 사용하는 이유는 모든 명령어가 `aws`로 시작하기 때문  ex)`aws s3 cp`
   * CLI를 사용하면 AWS 서비스의 공용 API로 직접 액세스가 가능함
@@ -146,7 +146,7 @@ AWS에 액세스 하는 방법은 아래와 같이 총 세 가지가 있음
   > **CLI (Command Line Interface)**
   > 명령줄 인터페이스, AWS CLI는 명령줄 셸(shell)에서 명령어를 사용하여 AWS 서비스들과 상호작용할 수 있도록 해주는 도구
 
-* AWS Software Developer Kit (SDK): AWS로부터 애플리케이션 코드 내에서 API를 호출하고자 할 때 사용되는 방식, 관리 콘솔을 사용해서 생성한 액세스 키에 의해 보호(사용자들이 엑세스 키를 직접 관리함)
+* **AWS Software Developer Kit (SDK)**: AWS로부터 애플리케이션 코드 내에서 API를 호출하고자 할 때 사용되는 방식, 관리 콘솔을 사용해서 생성한 액세스 키에 의해 보호(사용자들이 엑세스 키를 직접 관리함)
 
   * AWS 서비스나 API에 프로그래밍을 위한 액세스가 가능하도록 해줌
   * SDK는 터미널 내에서는 사용하는 것이 아니라, 코딩을 통해 애플리케이션 내에 심어 두어야 하는 것 (애플리케이션 내에 자체적으로 AWS SDK가 있는 것임)
