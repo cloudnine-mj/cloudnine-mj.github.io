@@ -158,6 +158,10 @@ AWS에 액세스 하는 방법은 아래와 같이 총 세 가지가 있음
   >
   > 소프트웨어 개발 키트, 특정 언어로 된 라이브러리의 집합, 프로그래밍 언어에 따라 개별 SDK가 존재함
 
+##  AWS CLI 설정
+
+* Windows, MacOS, Linux에서 AWS CLI 설정은 아래 링크 참조[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
 ## IAM Roles
 
 * IAM Role은 실제 사람이 사용하도록 만들어진 것이 아니고, AWS 서비스에 의해 사용되도록 만들어졌음
