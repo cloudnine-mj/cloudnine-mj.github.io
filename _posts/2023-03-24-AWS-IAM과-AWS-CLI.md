@@ -130,7 +130,7 @@ tags: [AWS, SAA, cloud, study]
 
 AWS에 액세스 하는 방법은 아래와 같이 총 세 가지가 있음
 
-* **AWS Management Console**: 사용자 이름 및 비밀번호와 다요소 인증(MFA)으로 보호됨)
+* **AWS Management Console**: 사용자 이름 및 비밀번호와 MFA으로 보호됨
 
 * **AWS CLI (Command Line lnterface)**: 액세스 키에 의해 보호  
 
