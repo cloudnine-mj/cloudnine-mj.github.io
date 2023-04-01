@@ -162,6 +162,19 @@ AWS에 액세스 하는 방법은 아래와 같이 총 세 가지가 있음
 
 * Windows, MacOS, Linux에서 AWS CLI 설정은 아래 링크 참조[https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
+
+
+## AWS CloudShell 사용
+
+<img src = "https://user-images.githubusercontent.com/113915835/229299224-430c0289-7b9b-4a94-a877-18abc6a2088b.png" width = "80%">
+
+* AWS에 터미널을 통해 명령을 내리는 것 대신 사용할 수 있는 대안
+* Cloud Shell은 AWS 클라우드에서 무료로 사용 가능한 터미널같은 개념
+* 모든 리전에서 사용 가능한 건 아님 (AWS CloudShell FAQs에서 사용 불가능한 리전이 나옴)
+* CloudShell에서는 기본 리전이 현재 로그인된 리전으로 나옴
+* CloudShell엔 전체 저장소가 있음 / 파일 업로드 혹은 다운로드 가능
+* CloudShell은 구성을 설정할 수 있음 (글씨크기, 테마 등)
+
 ## IAM Roles
 
 * IAM Role은 실제 사람이 사용하도록 만들어진 것이 아니고, AWS 서비스에 의해 사용되도록 만들어졌음
