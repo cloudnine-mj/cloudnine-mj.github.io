@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'AWS Global Accelerator & CloudFront'
 excerpt: 'AWS Study 서비스 정리 - AWSKRUG Beginner Certification Study 😎'
-tags: [AWS, SAA, cloud, study] 
+tags: [AWS, SAA, cloud, study, Networking] 
 ---
 
 

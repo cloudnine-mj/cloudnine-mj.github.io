@@ -2,9 +2,11 @@
 key: jekyll-text-theme
 title: 'AWS IAM과 AWS CLI'
 excerpt: 'AWS Study 서비스 정리 - AWSKRUG Beginner Certification Study 😎'
-tags: [AWS, SAA, cloud, study] 
+tags: [AWS, SAA, cloud, study, Security, Identity & Compliance] 
 ---
 
+
+# Security, Identity & Compliance
 
 ## AWS IAM 소개
 
@@ -108,16 +110,14 @@ tags: [AWS, SAA, cloud, study]
 
     * Authy: 여러 장치에서 사용 가능(작동 방식은 동일) . 컴퓨터와 휴대폰에서 같이 사용할 수 있으며, Authy는 하나의 장치에서도 토큰을 여러 개 지원함
 
-    * 루트 계정, IAM 사용자 또 다른 계정, 그리고 또 다른 IAM 사용자가 지원되는 식으로 가상 MFA 장치에
-
-      원하는 수만큼의 계정 및 사용자 등록이 가능함
+    * 루트 계정, IAM 사용자 또 다른 계정, 그리고 또 다른 IAM 사용자가 지원되는 식으로 가상 MFA 장치에 원하는 수만큼의 계정 및 사용자 등록이 가능함
 
   * YubiKey
 
     * UF2 보안키
     * AWS 제 3자 회사 Yubico의 장치
     * YubiKey는 하나의 보안 키에서 여러 루트의 계정과 IAM 사용자를 지원하므로 하나의 키로도 충분함
-
+  
   * 하드웨어 키 Fob MFA 장치
 
     * AWS 제 3자 회사 Gemalto의 장치
@@ -125,6 +125,8 @@ tags: [AWS, SAA, cloud, study]
   * 하드웨어 키 Fob MFA 장치(for AWS GovCloud)
 
     * AWS 제 3자 회사 SurePassID가 제공
+    
+      
 
 ## AWS에 액세스하는 방법 
 
