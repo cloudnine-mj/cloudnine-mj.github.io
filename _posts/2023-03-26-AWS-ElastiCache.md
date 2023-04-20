@@ -30,7 +30,8 @@ tags: [AWS, SAA, cloud, study, DataBase]
   - **Memcached**
 
   - **Redis**
-  <img src ="https://user-images.githubusercontent.com/113915835/228486681-fda3a8f0-f9a2-4bbe-a415-fc31b5e265d7.png" width = "80%">
+  
+    <img src ="https://user-images.githubusercontent.com/113915835/228486681-fda3a8f0-f9a2-4bbe-a415-fc31b5e265d7.png" width = "80%">
 
 ​    
 
