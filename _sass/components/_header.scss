@@ -52,7 +52,7 @@
     }
   }
   & > .search-button {
-    display: none;
+    display: auto;
     margin-left: map-get($spacers, 2);
     @include media-breakpoint-down(md) {
       @include flexbox();
