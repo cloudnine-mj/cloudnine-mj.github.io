@@ -13,7 +13,7 @@ tags: [AWS, SAA, cloud, study, Analytics]
 
 * AWS OpenSearch는 완전 관리형 검색 및 분석 서비스
 
-* Amazon ElasticSearch의 후속 서비스입니다. (라이선스 문제로 서비스명 변경)
+* Amazon ElasticSearch의 후속 서비스 (라이선스 문제로 서비스명 변경)
 
 ## AWS OpenSearch 특징
 
