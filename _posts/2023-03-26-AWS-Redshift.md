@@ -11,7 +11,7 @@ tags: [AWS, SAA, cloud, study, DataBase]
 
 ## AWS Redshift 소개
 
-* AWS 관리형 데이터 웨어 하우스 
+* AWS 관리형 Data Warehouse
 
 
 
@@ -21,7 +21,7 @@ tags: [AWS, SAA, cloud, study, DataBase]
 
 - PostgreSQL 기술 기반이지만 OLTP(Online Transaction Processing)에 사용되지는 않음
 
-  > OLTP (Online Transaction Processing)
+  > **OLTP (Online Transaction Processing)**
   >
   > 터미널에서 받은 메시지를 따라 호스트가 처리를 하고, 그 결과를 다시 터미널에 되돌려주는 방법
 
