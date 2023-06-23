@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'AWS IAM과 AWS CLI'
 excerpt: 'AWS Study 서비스 정리 - AWSKRUG Beginner Certification Study 😎'
-tags: [AWS, SAA, cloud, study, Security Identity & Compliance] 
+tags: [AWS, study, Security Identity & Compliance] 
 ---
 
 
