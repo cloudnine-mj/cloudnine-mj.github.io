@@ -1,6 +1,6 @@
 ---
 key: jekyll-text-theme
-title: 'AWS Redshift'
+title: 'Amazon Redshift'
 excerpt: 'AWS Study 서비스 정리 - AWSKRUG Beginner Certification Study 😎'
 tags: [AWS, study, DataBase] 
 ---
@@ -9,13 +9,13 @@ tags: [AWS, study, DataBase]
 
 # DataBase
 
-## AWS Redshift 소개
+## Amazon Redshift 소개
 
 * AWS 관리형 Data Warehouse
 
 
 
-## AWS Redshift 특징
+## Amazon Redshift 특징
 
 - Redshift의 모든 노드들은 같은 가용영역(AZ)에 있어야 함
 
@@ -41,7 +41,23 @@ tags: [AWS, study, DataBase]
 
 
 
-## AWS Redshift 기능
+## Amazon Redshift의 이점
+
+* 모든 규모에서 일관된 성능
+
+* 정형 또는 반정형 데이터
+
+* 스토리지와 컴퓨팅의 선택적 결합 해제
+
+* 내장된 보안 및 규정 준수 기능
+
+* 다른 AWS 서비스와의 통합
+
+* 관리 간소화 및 총소유비용(TCO 절감)
+
+  
+
+## Amazon Redshift 기능
 
 * 백업 및 복원
 
@@ -55,7 +71,7 @@ tags: [AWS, study, DataBase]
 
   <img src ="https://user-images.githubusercontent.com/113915835/228483669-3a364d20-7b5f-454f-afa2-6d44b8872e98.png" width = "80%">
 
-## AWS Redshift 스펙트럼
+## Amazon Redshift 스펙트럼
 
 <img src = "https://user-images.githubusercontent.com/113915835/228484068-8ba36561-b5f9-4598-a84d-c4e6852af83e.png" width = "50%">
 
