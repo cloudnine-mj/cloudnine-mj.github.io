@@ -24,6 +24,8 @@ tags: [AWS, study, DataBase]
   > **OLTP (Online Transaction Processing)**
   >
   > 터미널에서 받은 메시지를 따라 호스트가 처리를 하고, 그 결과를 다시 터미널에 되돌려주는 방법
+  >
+  > ex) RDBMS
 
 - OLAP (Online Analytical Processing)
 
