@@ -203,14 +203,11 @@ exclude:
 
 defaults:
   - scope:
-      path: "_docs/en"
-      # type: posts
+      path: ""
+      type: posts
     values:
       layout: article
-      nav_key: docs
-      sidebar:
-        nav: docs-en
-      # sharing: true
+      sharing: true
       license: true
       aside:
         toc: true
