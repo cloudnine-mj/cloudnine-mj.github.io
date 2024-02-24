@@ -69,7 +69,7 @@ paths:
 
 
 ## => Post
-##############################
+
 ## excerpt
 excerpt_separator: <!--more-->
 
@@ -203,12 +203,15 @@ exclude:
 
 defaults:
   - scope:
-      path: ""
-      type: posts
+      path: "_docs/en"
+      # type: posts
     values:
       layout: article
-      sharing: true
-      license: false
+      nav_key: docs
+      sidebar:
+        nav: docs-en
+      # sharing: true
+      license: true
       aside:
         toc: true
       show_edit_on_github: false
