@@ -60,7 +60,37 @@ logstash@ubuntu22:~/logstash-8.1.3/config$ vi beat_metric.conf
 * vi 편집기에 다음과 같이 작성
 
 ```
-########################################
+input {
+  http {
+    port => "5064"
+    codec => json
+  }
+  beats {
+    port => "5044"
+    codec => json
+  }
+}
+
+filter {
+  mutate {
+    add_field => { "[@ctime]" => "%{[@timestamp]}" }
+    add_field => { "[@itime]" => "%{[@timestamp]}" }
+  }
+
+  if [fields][object_id] {
+      mutate {
+        copy => { "[fields][object_id]" => "[object_id]" }
+      }
+  }
+  if [fields][identifier] {
+      mutate {
+        copy => { "[fields][identifier]" => "[identifier]" }
+      }
+  }
+
+
+  if [agent][type] == "metricbeat" {
+    ##########################################################
     # system.core.*.pct
     ##########################################################
     if [system][core][total][pct] {
@@ -350,7 +380,7 @@ output {
     codec => rubydebug
   }
   kafka {
-    bootstrap_servers => "127.0.0.1"
+    bootstrap_servers => "192.168.2.120:9092,192.168.2.121:9092"
     topic_id => ["tuba-metric-topic"]
     codec => "json"
   }
@@ -358,6 +388,7 @@ output {
 ```
 ### beat_meta.conf
 * meta 데이터 수집을 위한 conf 작성
+
 ```
 input {
   http {
