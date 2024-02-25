@@ -141,7 +141,7 @@ opensearch@ubuntu22:~/opensearch-2.6.0$ cp key/* config/
 opensearch@mj-test-4:~/opensearch-2.6.0$ vi config/opensearch.yml
 ```
 
-- 다음과 같이 작성
+- 다음과 같이 입력
 
 ```
 http.port: 8200
