@@ -270,7 +270,7 @@ opensearch@ubuntu22:~/opensearch-2.6.0$ chmod +x start.sh
 opensearch@ubuntu22:~/opensearch-2.6.0$ vi stop.sh
 ```
 
-- [stop.sh](http://stop.sh) 에 다음과 같이 작성
+- stop.sh에 다음과 같이 작성
 
 ```bash
 #!/bin/bash
