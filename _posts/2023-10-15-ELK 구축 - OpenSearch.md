@@ -16,7 +16,7 @@ root@ubuntu22:~# passwd opensearch
 
 
 
-## **2. ‘opensearch’ 유저로 변경 (root → opensearch)**
+## **2. ‘opensearch’ 유저로 변경 **
 
 ```
 root@ubuntu22:~# su - opensearch
