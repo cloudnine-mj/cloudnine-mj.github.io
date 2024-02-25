@@ -8,6 +8,7 @@ tags: [Logstash, ELK]
 # Logstash
 
 ## **1.유저생성 및 패스워드 설정**
+
 ```
 root@ubuntu22~# useradd -d /home/logstash -s /bin/bash -m logstash
 root@ubuntu22~# passwd logstash
@@ -15,6 +16,7 @@ root@ubuntu22~# passwd logstash
 
 ## **2. 패키지 다운로드 및 압축 해제**
 * 패키지 다운로드
+
 ```
 logstash@ubuntu22:~$ wget https://artifacts.elastic.co/downloads/logstash/logstash-8.1.3-linux-x86_64.tar.gz
 
@@ -24,6 +26,7 @@ logstash@ubuntu22:~$ wget https://download.java.net/java/GA/jdk17.0.1/2a2082e5a0
 ```
 
 *  패키지 압축 해제
+
 ```
 logstash@ubuntu22:~$ tar -xvf logstash-8.1.3-linux-x86_64.tar.gz
 logstash@ubuntu22:~$ tar -xvf mysql-connector-java-5.1.49.tar.gz
@@ -32,11 +35,13 @@ logstash@ubuntu22:~$ tar -xvf openjdk-17.0.1_linux-x64_bin.tar.gz
 
 ## **3. 환경설정**
 ### bash_profile 설정
+
 ```
 logstash@ubuntu22:~$ vi ~/.bash_profile
 ```
 
 * vi 편집기에 다음과 같이 작성
+
 ```
 JAVA_HOME=${HOME}/jdk-17.0.1
 PATH=$PATH:${HOME}/jdk-17.0.1/bin:${HOME}/logstash-8.1.3/bin
@@ -45,12 +50,15 @@ set -o vi
 
 ## 4. logstash filter conf 작성
 ### beat_metric.conf 
+
 * metric 데이터 수집을 위한 conf 작성
+
 ```
 logstash@ubuntu22:~/logstash-8.1.3/config$ vi beat_metric.conf
 ```
 
 * vi 편집기에 다음과 같이 작성
+
 ```
 ########################################
     # system.core.*.pct
@@ -602,11 +610,13 @@ output {
 ```
 
 ## **5. Logstash input 플러그인 설치**
+
 ```
 logstash@ubuntu22:~/logstash-8.1.3$ logstash-plugin install logstash-output-opensearch
 ```
 
 ## **6. Logstash 실행**
+
 ```
 logstash@ubuntu22:~/logstash-8.1.3$ nohup bin/logstash -f /home/logstash/logstash-8.1.3/config/beat_metric.conf 2>&1 1>/dev/null &
 ```
