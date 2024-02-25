@@ -76,7 +76,7 @@ root@ubuntu22:/etc/systemd/system# systemctl start opensearch.service
 
  
 
-## 4. OpenSearch 서비스 실행
+## 4. OpenSearch 서비스 상태 확인
 
 ```
 root@ubuntu22:/etc/systemd/system# systemctl status opensearch.service
