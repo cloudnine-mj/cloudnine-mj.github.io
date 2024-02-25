@@ -179,7 +179,7 @@ metricbeat@ubuntu22:~/metricbeat-7.11.0-linux-x86_64$ vi system.yml
     - uptime
 ```
 
-## 4. Ingest 실행
+## 4. Metricbeat 실행
 
 ```
 metricbeat@ubuntu22:~/metricbeat-7.11.0-linux-x86_64$ ./metricbeat -e -c metricbeat.yml
