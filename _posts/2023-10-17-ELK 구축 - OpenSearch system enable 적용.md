@@ -56,7 +56,8 @@ root@ubuntu22:~# vi /etc/systemd/system/opensearch.service
 Description=opensearch
 After=network.target 
 
-[Service] User=opensearch Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/opensearch/jdk-17.0.1/bin ExecStart=/home/opensearch/opensearch-2.6.0/bin/opensearch ExecStop=/home/opensearch/opensearch-2.6.0/stop 
+[Service] 
+User=opensearch Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/opensearch/jdk-17.0.1/bin ExecStart=/home/opensearch/opensearch-2.6.0/bin/opensearch ExecStop=/home/opensearch/opensearch-2.6.0/stop 
 Restart=on-failure 
 
 [Install]
