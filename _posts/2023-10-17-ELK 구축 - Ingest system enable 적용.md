@@ -1,7 +1,7 @@
 ---
 key: jekyll-text-theme
-title: 'OpenSearch system enable 적용'
-excerpt: ' Ubuntu 서버에 ELK 구축하기 😎'
+title: 'Ingest system enable 적용'
+excerpt: 'system enable 설정하기 😎'
 tags: [Ingest]
 ---
 
