@@ -7,7 +7,7 @@ tags: [OpenSearch, ELK]
 
 # OpenSearch
 
-**1. 유저 생성 및 패스워드 설정**
+## **1. 유저 생성 및 패스워드 설정**
 
 ```
 root@ubuntu22:~# useradd -d /home/opensearch -s /bin/bash -m opensearch
@@ -16,7 +16,7 @@ root@ubuntu22:~# passwd opensearch
 
 
 
-**2. ‘opensearch’ 유저로 변경 (root → opensearch)**
+## **2. ‘opensearch’ 유저로 변경 (root → opensearch)**
 
 ```
 root@ubuntu22:~# su - opensearch
@@ -25,7 +25,7 @@ opensearch@ubuntu22:~$
 
 
 
-**3. 패키지 다운로드 및 압축 해제**
+## **3. 패키지 다운로드 및 압축 해제**
 
 ```
 opensearch@ubuntu22:~$ wget <https://download.java.net/java/GA/jdk17.0.1/2a2082e5a09d4267845be086888add4f/12/GPL/openjdk-17.0.1_linux-x64_bin.tar.gz>
@@ -35,9 +35,9 @@ opensearch@ubuntu22:~$ tar -xvf opensearch-2.6.0-linux-x64.tar.gz
 
 
 
-**4. 환경 설정**
+## **4. 환경 설정**
 
-**1) bash_profile 설정**
+### **1) bash_profile 설정**
 
 ```
 opensearch@ubuntu22:~$ vi ~/.bash_profile
@@ -54,7 +54,7 @@ set -o vi
 
 
 
-**2) /etc/sysctl.conf 설정**
+### **2) /etc/sysctl.conf 설정**
 
 ```
 root@ubuntu22:~# vi /etc/sysctl.conf
@@ -75,7 +75,7 @@ root@ubuntu22:~# sudo swapoff -a
 
 
 
-**3) /etc/security/limits.conf 설정**
+### **3) /etc/security/limits.conf 설정**
 
 ```
 root@ubuntu22:~# vi /etc/security/limits.conf
@@ -89,7 +89,7 @@ opensearch           -       nofile          65535
 
 
 
-**5. key 생성**
+## **5. key 생성**
 
 - Opensearch 유저 변경
 
@@ -133,9 +133,9 @@ opensearch@ubuntu22:~/opensearch-2.6.0$ cp key/* config/
 
 
 
-**6. opensearch.yml 파일 설정하기**
+## **6. opensearch.yml 파일 설정하기**
 
-**[http]**
+### **[http]**
 
 ```
 opensearch@mj-test-4:~/opensearch-2.6.0$ vi config/opensearch.yml
@@ -191,7 +191,7 @@ path.logs: /home/opensearch/opensearch-2.6.0/path_data/logs
 
 
 
-**[https]**
+### **[https]**
 
 ```
 http.port: 8200
@@ -241,15 +241,15 @@ path.logs: /home/opensearch/opensearch-2.6.0/path_data/logs
 
 
 
-**7. shell 파일 작성**
+## **7. shell 파일 작성**
 
-**1) [start.sh](http://start.sh)**
+### **1) start.sh**
 
 ```
 opensearch@ubuntu22:~/opensearch-2.6.0$ vi start.sh
 ```
 
-- [start.sh](http://start.sh) 에 다음과 같이 작성
+- start.sh에 다음과 같이 작성
 
 ```bash
 #!/bin/bash
@@ -264,7 +264,7 @@ opensearch@ubuntu22:~/opensearch-2.6.0$ chmod +x start.sh
 
 
 
-**2) [stop.sh](http://stop.sh)**
+### **2) stop.sh**
 
 ```
 opensearch@ubuntu22:~/opensearch-2.6.0$ vi stop.sh
@@ -285,7 +285,7 @@ opensearch@ubuntu22:~/opensearch-2.6.0$ chmod +x stop.sh
 
 
 
-**8. 구동하기**
+## **8. 구동하기**
 
 - 포그라운드 모드에서 정상적으로 실행이 되는 지 확인한 후, 백그라운드 모드로 진행
 
