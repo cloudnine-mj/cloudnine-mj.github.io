@@ -7,7 +7,7 @@ tags: [OpenSearch]
 
 
 
-# OpenSearch system enable 적용
+# OpenSearch system enable 설정이란?
 
 🎯수행 목적 : vm 재기동 시 system enable 되어 자동으로 (daemon) 기동될 수 있도록 처리
 
