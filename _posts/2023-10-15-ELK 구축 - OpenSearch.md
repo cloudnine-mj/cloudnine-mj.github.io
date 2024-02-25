@@ -149,7 +149,7 @@ cluster.name: test-cluster
 node.name: node-1
 network.host: 0.0.0.0
 
-discovery.seed_hosts: ["192.168.2.120"]
+discovery.seed_hosts: ["127.0.0.1"]
 cluster.initial_master_nodes: ["node-1"]
 
 node.roles: ["cluster_manager","data"]
@@ -195,11 +195,11 @@ path.logs: /home/opensearch/opensearch-2.6.0/path_data/logs
 
 ```
 http.port: 8200
-cluster.name: test-cluster2
+cluster.name: test-cluster
 node.name: node-1
 network.host: 0.0.0.0
 
-discovery.seed_hosts: ["192.168.2.120"]
+discovery.seed_hosts: ["127.0.0.1"]
 cluster.initial_master_nodes: ["node-1"]
 
 node.roles: ["cluster_manager", "data"]
