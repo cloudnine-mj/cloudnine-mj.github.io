@@ -62,7 +62,7 @@ ingest@ubuntu22:~/logstash-8.1.3/config$ vi kafka.conf
 input {
   kafka {
     bootstrap_servers => "127.0.0.1:9092"
-#    topics => ["tuba-topic","tuba-metric-topic"]  2023.09.15 jslee 
+#    topics => ["tuba-topic","tuba-metric-topic"]
     topics => ["delta-topic"]
     codec => "json"
   }
