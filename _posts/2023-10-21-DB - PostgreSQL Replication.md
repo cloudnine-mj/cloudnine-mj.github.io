@@ -6,7 +6,7 @@ tags: [PostgreSQL, DB]
 ---
 
 
-# **Master 설정
+# Master 설정
 * 1번 서버 - 192.168.2.120
 
 ## 1. postgresql.conf 수정
@@ -64,7 +64,7 @@ postgres=# alter user repluser replication;
 
 <br>
 
-# **Slave 설정 
+# Slave 설정 
 * 2번 서버 - 192.168.2.121
 
 ## 1. Data 복제
