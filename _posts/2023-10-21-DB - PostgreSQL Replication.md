@@ -38,8 +38,6 @@ stderr log_connections=on  #default off
 * vi 편집기에 다음과 같이 입력
   * replication만 수정하는 게 아니라 IPv4 local connections의 address도 같이 수정해서 진행
 
-
-
 ```
 host    replication     all             0.0.0.0/0         trust  host    all             all             0.0.0.0/0         trust
 ```
@@ -47,7 +45,6 @@ host    replication     all             0.0.0.0/0         trust  host    all    
 
 
 ## 3. slot create & search
-
 
 ```
 [/home/postgres] pg_ctl start # 서버 실행  
@@ -59,13 +56,12 @@ postgres=# select slot_name, slot_type, active from pg_replication_slots;
 
 ## 4. Replica User Create
 
-
 ```
 postgres=# CREATE USER repluser WITH ENCRYPTED PASSWORD 'repluser' login;  
 postgres=# alter user repluser replication;
 ```
 
-
+</br>
 
 # **Slave 설정 ( 2번 서버 - 192.168.2.121)**
 
@@ -144,13 +140,5 @@ postgres=# select * from employees;
 
 [/home/postgres/as15/data] psql
 postgres=# select * from employees;
-```
-
-
-
-
-
-```
-# Slave [/home/postgres/as15/data] psql postgres=# select * from employees;
 ```
 
