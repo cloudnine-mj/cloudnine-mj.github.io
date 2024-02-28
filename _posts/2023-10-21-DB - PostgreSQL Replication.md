@@ -6,7 +6,8 @@ tags: [PostgreSQL, DB]
 ---
 
 
-# **Master 설정 (1번 서버 - 192.168.2.120)**
+# **Master 설정
+* 1번 서버 - 192.168.2.120
 
 ## 1. postgresql.conf 수정
 
@@ -36,7 +37,7 @@ stderr log_connections=on  #default off
 ```
 
 * vi 편집기에 다음과 같이 입력
-  * replication만 수정하는 게 아니라 IPv4 local connections의 address도 같이 수정해서 진행
+  * replication만 수정하는 게 아니라 IPv4 local connections의 address도 같이 수정해서 진행해야 함.
 
 ```
 host    replication     all             0.0.0.0/0         trust  host    all             all             0.0.0.0/0         trust
@@ -61,9 +62,10 @@ postgres=# CREATE USER repluser WITH ENCRYPTED PASSWORD 'repluser' login;
 postgres=# alter user repluser replication;
 ```
 
-</br>
+<br>
 
-# **Slave 설정 ( 2번 서버 - 192.168.2.121)**
+# **Slave 설정 
+* 2번 서버 - 192.168.2.121
 
 ## 1. Data 복제
 
@@ -73,7 +75,7 @@ postgres=# alter user repluser replication;
 [/home/postgres] pg_ctl start # 서버 실행
 ```
 
-## 2. properties 수정 (postgresql.conf, pg_hba.conf)
+## 2. properties 수정
 
 ### postgresql.conf 수정
 
@@ -119,7 +121,7 @@ postgres   52655   52644  0 10:35 ?        00:00:00 postgres: walsender repluser
 
 ## **확인 작업**
 
-1. Master에서 psql 로 테이블 생성한 후 Slave에서도 조회가 되는 지 확인하기
+* Master에서 psql 로 테이블 생성한 후 Slave에서도 조회가 되는지 확인
 
 ```
 # Master
