@@ -640,7 +640,7 @@ output {
 }
 ```
 
-## **5. Logstash input 플러그인 설치**
+## **5. Logstash 플러그인 설치**
 
 ```
 logstash@ubuntu22:~/logstash-8.1.3$ logstash-plugin install logstash-output-opensearch
