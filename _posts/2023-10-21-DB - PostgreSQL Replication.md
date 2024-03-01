@@ -20,7 +20,7 @@ tags: [PostgreSQL, DB]
 
 ```
 listen_addresses = '*'  
-shared_buffers = 2G  
+shared_buffers = 2GB  
 archive_mode = on  
 archive_command = 'cp %p /home/postgres/backups/archive_backup/%f'  
 wal_level = replica  

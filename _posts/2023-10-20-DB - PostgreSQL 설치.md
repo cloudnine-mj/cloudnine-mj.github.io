@@ -97,7 +97,7 @@ postgres@ubuntu22:~$ source .bash_profile
 * 다음과 같이 작성
 
 ```
-shared_buffers= 2G # 8GB 서버에서 사용하는 공유메모리 버퍼(메모리의 1/4)  // default : 970096kB  
+shared_buffers= 2GB # 8GB 서버에서 사용하는 공유메모리 버퍼(메모리의 1/4)  // default : 970096kB  
 listen_addresses='*' # // 접속 설정 여부. (Default 값)  
 logging_collector=on # default on  
 log_destination='stderr' # default stderr  
