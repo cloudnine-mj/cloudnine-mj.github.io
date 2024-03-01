@@ -40,7 +40,8 @@ stderr log_connections=on  #default off
   * replication만 수정하는 게 아니라 IPv4 local connections의 address도 같이 수정해서 진행해야 함.
 
 ```
-host    replication     all             0.0.0.0/0         trust  host    all             all             0.0.0.0/0         trust
+host    replication     all             0.0.0.0/0         trust  
+host    all             all             0.0.0.0/0         trust
 ```
 
 
