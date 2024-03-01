@@ -58,7 +58,7 @@ log_destination='stderr' # default stderr  log_connections=on  #default off
 
 
 ```
-[/home/postgres/as15/data] vi pg_hba.conf
+[/home/postgres/as15/data] vi pg_hba.conf  # slave 서버 접속 권한 부여
 ```
 
 * vi 편집기에 다음과 같이 입력
