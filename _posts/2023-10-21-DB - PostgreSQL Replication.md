@@ -25,8 +25,7 @@ archive_mode = on
 archive_command = 'cp %p /home/postgres/backups/archive_backup/%f'  
 wal_level = replica  
 logging_collector=on # default on  
-log_destination='stderr' # default  
-stderr log_connections=on  #default off  
+log_destination='stderr' # default stderr  log_connections=on  #default off  
 ```
 
 ## 2. pg_hba_conf 수정
