@@ -39,7 +39,7 @@ root@ubuntu22:~# apt install gcc
 root@ubuntu22:~# apt install make
 ```
 
-## 5. make, make install 작업 진행
+## 5. make, make install 진행
 
 ```
 root@ubuntu22:~# su - postgres  
