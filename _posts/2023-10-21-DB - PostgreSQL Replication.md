@@ -28,6 +28,32 @@ logging_collector=on # default on
 log_destination='stderr' # default stderr  log_connections=on  #default off  
 ```
 
+**[참고 - 옵션 정보]**
+
+* wal_level : WAL (Write Ahead Log)에 기록되는 정보(양)를 결정
+
+  | 옵션    | 설명                                                         |
+  | ------- | ------------------------------------------------------------ |
+  | minimal | 기본값은 충돌 또는 즉시 셧다운으로부터 복구하기 위해 필요한 정보만 기록 |
+  | archive | Wal 아카이브에 필요한 로깅만 추가 (9.6 버전부터는 hot_standby와 archive 모두 replica로 대체) |
+  | replica | 9.4버전까지는 hot_standby. 9.6 버전부터는 replica라는 값으로 대체되었고, Slave 노드에서 읽기 전용 쿼리에 필요한 정보를 추가하게 됨. |
+  | logical | 논리적 디코딩을 지원하는데 필요한 정보를 추가                |
+
+* max_wal_sanders : 스트리밍 기반의 백업 클라이언트로부터의 동시 연결 최대 수를 지정
+
+  * WAL Sender 프로세서는 max_connections 보다 큰 값을 설정할 수 없음.
+  * 일반적으로 slave의 수 + 1 으로 많이 설정함.
+
+* wal_keep_size : Slave 서버가 streaming replication을 위해 과거 로그 파일을 가져와야 하는 경우 pg_wal(10 버전 미만은 pg_xlog) 디렉터리에 저장되는 과거 로그 조각 파일의 최소 크기를 지정
+
+  * 즉, Slave 서버를 위해 남겨 놓을 WAL 양을 지정
+  * default = 0 (비활성화 상태)
+  * PostgreSQL 13 이후 wal_keep_segments -> wal_keep_size로 변경 (단위: MB)
+  * Maximum 수가 지정되어 있지 않기 때문에 서버의 디스크 공간, DB 트랜잭션에 따른 wal의 갱신 속도를 고려해서 설정값을 찾아야 함.
+  * wal_keep_size = wal_keep_segments * wal_segment_size (일반적으로는 16MB)
+
+
+
 ## 2. pg_hba_conf 수정
 
 
