@@ -109,6 +109,9 @@ host    replication     all           0.0.0.0/0          trust   host    all    
 
 ### 3. replication 확인하기
 
+* walwriter : master
+* walreceiver : slave
+
 
 ```
 [/home/postgres/backups/archive_backup] ps -ef c| grep wal
