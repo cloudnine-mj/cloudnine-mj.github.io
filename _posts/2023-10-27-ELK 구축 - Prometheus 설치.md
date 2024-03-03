@@ -9,7 +9,7 @@ tags: [Prometheus]
 
 
 
-👉 Prometheus document : [https://prometheus.io/docs/prometheus/latest/getting_started/](https://prometheus.io/docs/prometheus/latest/getting_started/)
+👉 Prometheus Document : [https://prometheus.io/docs/prometheus/latest/getting_started/](https://prometheus.io/docs/prometheus/latest/getting_started/)
 
 
 
