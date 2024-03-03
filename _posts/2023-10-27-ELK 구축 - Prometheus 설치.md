@@ -1,6 +1,6 @@
 ---
 key: jekyll-text-theme
-title: 'Prometheus'
+title: 'Prometheus 설치'
 excerpt: 'Prometheus installation 😎'
 tags: [Prometheus]
 ---
