@@ -7,6 +7,13 @@ tags: [Prometheus]
 
 # Prometheus
 
+
+
+👉 Prometheus document : [https://prometheus.io/docs/prometheus/latest/getting_started/](https://prometheus.io/docs/prometheus/latest/getting_started/)
+
+
+
+
 ## 1. 유저 생성 및 패스워드 설정
 
 ```
