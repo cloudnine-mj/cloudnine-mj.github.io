@@ -1,7 +1,7 @@
 ---
 key: jekyll-text-theme
-title: 'Prometheus'
-excerpt: 'Prometheus installation 😎'
+title: 'Prometheus system enable 적용'
+excerpt: 'system enable 설정하기 😎'
 tags: [Prometheus]
 ---
 
