@@ -12,7 +12,7 @@ tags: [Prometheus]
 * root에서 진행
 
 ```
-root@ubuntu22:~# cd /etc/systemd/system
+root@ubuntu22:~# cd /etc/systemd/system/prometheus.service
 ```
 
 * vi 편집기에 다음과 같이 작성
