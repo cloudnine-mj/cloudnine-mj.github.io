@@ -6,7 +6,7 @@ tags: [PostgreSQL]
 ---
 
 
-:star: PostgreSQL DB로 업무하다가 간단한 SQL 쿼리도 시간이 엄청 오래 걸릴만큼 처리 속도가 느리고, CPU 사용률이 너무 높아져서 원인을 찾다가 Autovacuum 이라는 것을 찾아냄.
+:star: PostgreSQL DB로 업무하다가 간단한 SQL select 쿼리도 시간이 엄청 오래 걸릴만큼 처리 속도가 느리고, CPU 사용률이 너무 높아져서 원인을 찾다가 Autovacuum 이라는 것을 찾아냄.
 
 # Autovacuum(Vacuum) 이란?
 
@@ -44,9 +44,16 @@ tags: [PostgreSQL]
 
 <br>
 
-* 특정 column 혹은 row를 업데이트하는 트랜잭션이 수행될 경우 PostgreSQL은 MVCC 지원을 위해 다음과 같이 동작함
+* 특정 column 혹은 row를 업데이트하는 트랜잭션이 수행될 경우 PostgreSQL은 MVCC 지원을 위해 다음과 같이 동작함.
 	* FSM(Free Space Map)에 여유가 있는지 확인 (없다면, FSM을 추가적으로 확보함)
 	* FSM의 빈 공간에 업데이트 될 데이터를 기록 -> 이 때 새로운 tuple이 추가됨
 	* 기록이 완료되면, 기존 column 또는 row를 가리키는 포인터를 새로 기록된 tuple로 변경함
 	* 업데이트 이전 정보가 기록된 공간은 더이상 참조되지 않게 함. -> 이 때 참조되지 않는 tuple을 **dead tuple** 이라고 함.
 	* 일련의 과정에서 생성된 dead tuple 은 참조가 되지 않을 뿐 아니라 무의미하게 저장공간만 낭비하고 있는 상태가 됨. 그리고 이런 dead tuple 이 점유하고 있는 공간을 정리하여 FSM 으로 반환하여 재사용 가능하도록 하는 작업을 바로 Autovacuum(vacuum) 이라고 함.
+
+### 요약
+
+* PostgreSQL 의 MVCC 구현체는 update/delete 트랜잭션이 일어날 때 dead tuple 을 남김.
+* dead tuple 을 정리하기 위해 Vacuum 이라는 task 가 만들어지게 됨.
+* Vacuum 명령어는 수동으로 구동됨. 그리고 Vacuum 이 수행중일 때 해당 테이블은 lock 이 걸리며 모든 트랜잭션이 거부됨. :star:
+* 테이블에 lock 을 걸지 않으면서, 정기적으로, 그리고 자동으로 vacuuming 을 수행하는 Autovacuum 이 필요함.
