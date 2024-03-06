@@ -8,7 +8,7 @@ tags: [PostgreSQL]
 
 :star: PostgreSQL DB로 업무하다가 간단한 SQL select 쿼리도 시간이 엄청 오래 걸릴만큼 처리 속도가 느리고, CPU 사용률이 너무 높아져서 원인을 찾다가 Autovacuum 이라는 것을 찾아냄.
 
-# Autovacuum(Vacuum) 이란?
+# Autovacuum이란?
 
 * PostgreSQL에는 Autovacuum 이라는 개념이 존재 (Oracle, MariaDB, MySQL, SQLserver 등에는 존재하지 않는 개념)
 * PostgreSQL 사용 시 Vacuum 과 관련된 설정을 제대로 하지 않는다면 데이터베이스의 트랜잭션이 증가했을 때, 성능이 느려지는 현상을 겪을 수 있음.
@@ -49,7 +49,7 @@ tags: [PostgreSQL]
 	* FSM의 빈 공간에 업데이트 될 데이터를 기록 -> 이 때 새로운 tuple이 추가됨
 	* 기록이 완료되면, 기존 column 또는 row를 가리키는 포인터를 새로 기록된 tuple로 변경함
 	* 업데이트 이전 정보가 기록된 공간은 더이상 참조되지 않게 함. -> 이 때 참조되지 않는 tuple을 **dead tuple** 이라고 함.
-	* 일련의 과정에서 생성된 dead tuple 은 참조가 되지 않을 뿐 아니라 무의미하게 저장공간만 낭비하고 있는 상태가 됨. 그리고 이런 dead tuple 이 점유하고 있는 공간을 정리하여 FSM 으로 반환하여 재사용 가능하도록 하는 작업을 바로 Autovacuum(vacuum) 이라고 함.
+	* 일련의 과정에서 생성된 dead tuple 은 참조가 되지 않을 뿐 아니라 무의미하게 저장공간만 낭비하고 있는 상태가 됨. 그리고 이런 dead tuple 이 점유하고 있는 공간을 정리하여 FSM 으로 반환하여 재사용 가능하도록 하는 작업을 바로 "vacuum"이라고 함.
 
 ### 요약
 
