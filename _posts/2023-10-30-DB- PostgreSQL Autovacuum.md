@@ -11,7 +11,7 @@ tags: [PostgreSQL]
 # Autovacuum이란?
 
 * PostgreSQL에는 Autovacuum 이라는 개념이 존재 (Oracle, MariaDB, MySQL, SQLserver 등에는 존재하지 않는 개념)
-* PostgreSQL 사용 시 Vacuum 과 관련된 설정을 제대로 하지 않는다면 데이터베이스의 트랜잭션이 증가했을 때, 성능이 느려지는 현상을 겪을 수 있음.
+* PostgreSQL 사용 시 Vacuum 과 관련된 설정을 제대로 하지 않는다면 데이터베이스 트랜잭션이 증가했을 때, 성능이 느려지는 현상을 겪을 수 있음.
 * PostgreSQL 을 안정적으로 운용하기 위해서는 Autovacuum에 대해 알아야 함.
 
 
