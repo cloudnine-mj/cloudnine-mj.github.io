@@ -72,6 +72,18 @@ tags: [PostgreSQL]
 	* dead tuple 로 인해 쿼리 성능이 저하되는 경우가 자주 생기면, 통계 수집기는 인덱스가 멀쩡히 있음에도 인덱스를 사용하지 말라는 황당한 판단을 내리는 경우도 발생함.
 
 
+:star: PostgreSQL의 기본 설정은 최고의 성능을 내기 보다 가능한 다양한 기기에서 잘 동작할 수 있도록 보수적으로 잡혀있다는 것.
 
+## Dead Tuple conf 파일 설정
+
+### postgresql.conf 설정
+
+dead tuple을 제거하기 위한 vacuuming 동작에 관여하는 설정들...
+
+* autovacuum_vacuum_threshold
+	* vacuum 이 일어나기 위한 dead tuple 의 최소 갯수 / 기본 값은 50 
+* autovacuum_vacuum_scale_factor
+	* vacuum 이 일어나기 위한 live tuple 대비 dead tuple 의 최소 비율 / 기본 값은 0.2
+	* Autovacuum 을 최적화 하는 가장 간단한 방법은 autovacuum_vacuum_scale_factor 를 0으로 설정하는 것.
 
 
