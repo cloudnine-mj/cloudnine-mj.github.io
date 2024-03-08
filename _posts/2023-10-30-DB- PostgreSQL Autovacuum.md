@@ -28,7 +28,7 @@ tags: [PostgreSQL]
 * PostgreSQL에서 모든 데이터는 tuple 형태로 저장
 * tuple -> live tuple, dead tuple
 * dead tuple은 더이상 사용(참조)되지 않는 tuple
-* dead tuple은 PostgreSQL이 MVCC를 구현한 방법으로 인해 발생
+* PostgreSQL의 MVCC로 인해 dead tuple이 발생
 
 > **MVCC (다중 버전 동시성 제어)**
 > *  동시 접근을 허용하는 데이터베이스에서 동시성을 제어하기 위해 사용하는 방법
