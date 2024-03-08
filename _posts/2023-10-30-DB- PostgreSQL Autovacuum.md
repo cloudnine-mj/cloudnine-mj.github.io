@@ -71,6 +71,9 @@ tags: [PostgreSQL]
 * PostgreSQL 은 주기적으로 테이블의 통계정보를 갱신하는 작업을 수행하여 이를 통해 최적의 쿼리 계획을 수립함.
 	* dead tuple 로 인해 쿼리 성능이 저하되는 경우가 자주 생기면, 통계 수집기는 인덱스가 멀쩡히 있음에도 인덱스를 사용하지 말라는 황당한 판단을 내리는 경우도 발생함.
 
+> **Data Bloat**
+> Bloat은 빈번한 업데이트 및 삭제로 인해 테이블 및 인덱스에 누적되는 불필요한 데이터. Bloat을 사용하면 데이터베이스 크기가 예상보다 커지고 쿼리 성능에 영향을 줄 수 있음.
+<br>
 
 :star: PostgreSQL의 기본 설정은 최고의 성능을 내기 보다 가능한 다양한 기기에서 잘 동작할 수 있도록 보수적으로 잡혀있다는 것.
 
@@ -85,5 +88,4 @@ dead tuple을 제거하기 위한 vacuuming 동작에 관여하는 설정들...
 * autovacuum_vacuum_scale_factor
 	* vacuum 이 일어나기 위한 live tuple 대비 dead tuple 의 최소 비율 / 기본 값은 0.2
 	* Autovacuum 을 최적화 하는 가장 간단한 방법은 autovacuum_vacuum_scale_factor 를 0으로 설정하는 것.
-
 
