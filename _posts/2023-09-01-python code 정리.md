@@ -19,6 +19,5 @@ tags: [Coding, Python]
 	* 3 12 123 => arr = [3, 12, 123]
 
 
-# Python 연산자
 
-* 
+ 
