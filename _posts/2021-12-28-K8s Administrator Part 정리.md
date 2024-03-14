@@ -775,6 +775,7 @@ tags: [K8s]
 * Pod로 구동된 `etcd` 버전 확인 후 해당 `etcdctl` 설치
   * [etcd 문서](https://github.com/etcd-io/etcd/releases)
   * `$ kubectl describe -n kube-system pod etcd-kmj-master-01.kr-central-1.c.internal`
-  <br>
+
+<br>
 ## Kubectl Docker secret
 * `$ kubectl create secret docker-registry dockersecret --docker-username="" --docker-password="" --docker-server=https://index.docker.io/v1/ --dry-run=client -o yaml > dockersecret.yaml`
