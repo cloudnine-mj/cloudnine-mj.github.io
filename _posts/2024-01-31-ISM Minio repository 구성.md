@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'ISM Minio repository 구성'
 excerpt: ' OpenSearch cold storage 😎'
-tags: [Opensearch, Cold storage]
+tags: [Opensearch, Cold storage, Research]
 ---
 
 
