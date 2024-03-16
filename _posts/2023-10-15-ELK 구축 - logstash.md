@@ -634,7 +634,7 @@ output {
   }
   kafka {
     bootstrap_servers => "127.0.0.1:9092"
-    topic_id => ["tuba-meta-topic"]
+    topic_id => ["test-topic"]
     codec => "json"
   }
 }

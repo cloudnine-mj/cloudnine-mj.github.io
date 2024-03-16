@@ -1,6 +1,6 @@
 ---
 key: jekyll-text-theme
-title: 'Docker_K8s 부트캠프 최종과제-movie_api'
+title: 'Docker_K8s 부트캠프 최종과제-movie_api, movie_ui 구현'
 excerpt: ' Docker/K8s 공부하기😎'
 tags: [Docker, K8s]
 ---
@@ -52,7 +52,7 @@ tags: [Docker, K8s]
       ~~~
     * `# apt-get install gnupg2 pass` 명령 수행
       * 디지털 서명, 인증과 관련된 도구(툴) 설치
- 
+
       ~~~console
       root@kmj-01:~# docker login
       Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
