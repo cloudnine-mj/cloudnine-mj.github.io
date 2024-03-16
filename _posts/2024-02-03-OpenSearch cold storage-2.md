@@ -161,6 +161,8 @@ POST cold-index/_refresh
 - ISM은 특정 주기마다 ISM 조건에 맞는 인덱스가 있는지 검사하는 과정을 거친다.
 - 기본이 10분이라 테스트시 문제가 발생할 수 있으므로 해당 값을 바꿔 주면 테스트할때 도움이 될 수 있다.
 <br>
+
+
 # Troubleshooting
 
 ## ISM 구성 전 bucket의 내용물이 없어야 함
