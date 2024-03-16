@@ -142,7 +142,7 @@ green open cold-index-2024.02.01-000001   q511OxlATvisRDgwXTtjLw 1 1 40200 0  20
 
 - remote restore 시 데이터를 실제로 가져오지 않고 meta 정보만 가져오는 것으로 판단할 수 있음.
 - 실제로 search를 실행해서 읽어도 데이터를 가져오지만 내부 용량이 늘어나진 않음.
-- 
+
 
 ## _cat/indices 데이터 불일치
 
