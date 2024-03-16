@@ -8,7 +8,9 @@ tags: [PostgreSQL, Research]
 
 :star: PostgreSQL DB로 업무하다가 간단한 SQL select 쿼리도 시간이 엄청 오래 걸릴만큼 처리 속도가 느리고, CPU 사용률이 너무 높아져서(데이터 수집 주기에는 90%까지 올라감...) 원인을 찾다가 Vacuum 이라는 것을 찾아냄.
 
-# Vacuum이란?
+# PostgreSQL Vacuum
+
+## Vacuum이란?
 
 * PostgreSQL에는 Autovacuum 이라는 개념이 존재 (Oracle, MariaDB, MySQL, SQLserver 등에는 존재하지 않는 개념)
 * Vacuum은 PostgreSQL의 진공청소기 역할을 하는 동작
@@ -16,7 +18,7 @@ tags: [PostgreSQL, Research]
 * PostgreSQL을 안정적으로 운용하기 위해서는 Autovacuum에 대해 알아야 함.
 
 
-# Vacuum이 동작하는 상황
+## Vacuum이 동작하는 상황
 
 1. XID wraparound를 방지하기 위해 XID를 고정할 때 (XID가 임계점에 도달할 경우 강제로 동작)
 2. 임계점 이상으로 늘어난 dead tuple 들을 제거하여 FSM(Free Space Map) 으로 반환하고자 할 때
@@ -25,7 +27,7 @@ tags: [PostgreSQL, Research]
 > DBMS에서 트랜잭션이 발생한 시점을 식별하기 위한 정보 (일종의 시간정보)
 > XID는 트랜잭션이 일어날 때마다 하나씩 증가하며, MVCC 모델의 구현 및 읽기 일관성을 위해 사용
 
-# Dead Tuple 이란?
+## Dead Tuple 이란?
 * PostgreSQL에서 모든 데이터는 tuple 형태로 저장 (PostgreSQL에서는 Record 대신 Tuple이라는 용어 사용)
 * tuple -> live tuple, dead tuple
 * dead tuple은 더이상 사용(참조)되지 않는 tuple
