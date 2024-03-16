@@ -2,11 +2,11 @@
 key: jekyll-text-theme
 title: 'PostgreSQL Autovacuum'
 excerpt: ' PostgreSQL Autovacuum Research😎'
-tags: [PostgreSQL]
+tags: [PostgreSQL, Research]
 ---
 
 
-:star: PostgreSQL DB로 업무하다가 간단한 SQL select 쿼리도 시간이 엄청 오래 걸릴만큼 처리 속도가 느리고, CPU 사용률이 너무 높아져서 원인을 찾다가 Autovacuum 이라는 것을 찾아냄.
+:star: PostgreSQL DB로 업무하다가 간단한 SQL select 쿼리도 시간이 엄청 오래 걸릴만큼 처리 속도가 느리고, CPU 사용률이 너무 높아져서(데이터 수집 주기에는 90%까지 올라감...) 원인을 찾다가 Autovacuum 이라는 것을 찾아냄.
 
 # Autovacuum이란?
 

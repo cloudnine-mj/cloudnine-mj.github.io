@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'PostgreSQL Vacuum  vs  Autovacuum'
 excerpt: ' PostgreSQL Autovacuum Research😎'
-tags: [PostgreSQL]
+tags: [PostgreSQL, Research]
 ---
 
 # Vacuum이란?
