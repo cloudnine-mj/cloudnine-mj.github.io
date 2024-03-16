@@ -47,7 +47,7 @@ bin/opensearch-plugin install repository-s3
 
 ```
 export MINIO_ACCESS_KEY_ID="minio"
-export MINIO_SECRET_ACCESS_KEY="okestro2018"
+export MINIO_SECRET_ACCESS_KEY="**********"
 
 echo $MINIO_ACCESS_KEY_ID | bin/opensearch-keystore add --stdin s3.client.default.access_key
 echo $MINIO_SECRET_ACCESS_KEY | bin/opensearch-keystore add --stdin s3.client.default.secret_key
