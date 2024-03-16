@@ -1,6 +1,6 @@
 ---
 key: jekyll-text-theme
-title: 'OpenSearch cold storage'
+title: 'OpenSearch cold storage-1'
 excerpt: ' OpenSearch cold storage research 😎'
 tags: [Opensearch, Cold storage, Research]
 ---
