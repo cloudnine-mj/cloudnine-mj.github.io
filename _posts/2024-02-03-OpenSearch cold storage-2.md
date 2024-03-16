@@ -141,10 +141,8 @@ green open cold-index-2024.02.01-000001   q511OxlATvisRDgwXTtjLw 1 1 40200 0  20
 ### 결론
 
 - remote restore 시 데이터를 실제로 가져오지 않고 meta 정보만 가져오는 것으로 판단할 수 있음.
-
 - 실제로 search를 실행해서 읽어도 데이터를 가져오지만 내부 용량이 늘어나진 않음.
-
-  
+- 
 
 ## _cat/indices 데이터 불일치
 
@@ -162,7 +160,7 @@ POST cold-index/_refresh
 
 - ISM은 특정 주기마다 ISM 조건에 맞는 인덱스가 있는지 검사하는 과정을 거친다.
 - 기본이 10분이라 테스트시 문제가 발생할 수 있으므로 해당 값을 바꿔 주면 테스트할때 도움이 될 수 있다.
-
+<br>
 # Troubleshooting
 
 ## ISM 구성 전 bucket의 내용물이 없어야 함
