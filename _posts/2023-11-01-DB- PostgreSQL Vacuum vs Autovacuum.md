@@ -73,6 +73,24 @@ select relname, reloptions from pg_class where relname={{table_name}};
 # 설정 초기화
 alter table {{schema.table_name}} reset (autovacuum_vacuum_scale_factor);
 ```
+
+
+## Dead Tuple conf 파일 설정
+
+### postgresql.conf 설정
+
+dead tuple을 제거하기 위한 vacuuming 동작에 관여하는 설정들...
+
+* autovacuum_vacuum_threshold
+
+  * vacuum 이 일어나기 위한 dead tuple 의 최소 갯수 / 기본 값은 50 
+
+* autovacuum_vacuum_scale_factor
+
+  * vacuum 이 일어나기 위한 live tuple 대비 dead tuple 의 최소 비율 / 기본 값은 0.2
+
+  * Autovacuum 을 최적화 하는 가장 간단한 방법은 autovacuum_vacuum_scale_factor 를 0으로 설정하는 것.
+
 <br>
 
 > **REFERENCE**
