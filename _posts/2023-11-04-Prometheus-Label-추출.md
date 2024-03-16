@@ -46,7 +46,8 @@ GET api/v1/series?match[]=kube_pod_status_phase
 
 # 3. Grafana templating을 이용한 추출
 
-👉 [How to extract label values from Prometheus metrics in Grafana | Grafana Labs](https://grafana.com/blog/2023/02/23/how-to-extract-label-values-from-prometheus-metrics-in-grafana/)
+👉 How to extract label values from Prometheus metrics in Grafana | Grafana Labs
+[https://grafana.com/blog/2023/02/23/how-to-extract-label-values-from-prometheus-metrics-in-grafana/](https://grafana.com/blog/2023/02/23/how-to-extract-label-values-from-prometheus-metrics-in-grafana/)
 
 
 * Grafana에서 Promethues 데이터를 로드하고, templating을 통해 쉽게 가져오는 방법이 있는 것으로 보인다. label_values() 와 같은 함수의 형태가 있다고 한다.
