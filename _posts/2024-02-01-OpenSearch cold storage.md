@@ -73,7 +73,7 @@ s3.client.default.protocol: "http"
 
 * test-index라는 인덱스에 랜덤 데이터를 100개 넣었다.
 
-# test.py
+### test.py
 
 ```
 from faker import Faker
