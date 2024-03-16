@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Docker_K8s 부트캠프 최종과제-movie_api'
 excerpt: ' Docker/K8s 공부하기😎'
-tags: [Docker, K8s ]
+tags: [Docker, K8s]
 ---
 
 # 과제 수행 방법
