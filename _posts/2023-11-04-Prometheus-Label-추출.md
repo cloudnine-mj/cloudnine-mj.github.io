@@ -17,7 +17,7 @@ tags: [Prometheus, Research]
 
 
 
-# 1. Prometheus API를 통한 추출
+## 1. Prometheus API를 통한 추출
 
 - api에서 series를 제공하는데, 다음과 같이 구성됨.
 - phase, namespace 등의 정보를 기본적으로 제공하고, 해당 데이터를 가공해서 목록을 뽑아내야 한다.
@@ -44,7 +44,7 @@ GET api/v1/series?match[]=kube_pod_status_phase
 }
 ```
 
-# 3. Grafana templating을 이용한 추출
+## 2. Grafana templating을 이용한 추출
 
 👉 How to extract label values from Prometheus metrics in Grafana | Grafana Labs
 [https://grafana.com/blog/2023/02/23/how-to-extract-label-values-from-prometheus-metrics-in-grafana/](https://grafana.com/blog/2023/02/23/how-to-extract-label-values-from-prometheus-metrics-in-grafana/)
