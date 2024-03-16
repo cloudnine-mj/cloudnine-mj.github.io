@@ -52,6 +52,7 @@ tags: [Docker, K8s]
       ~~~
     * `# apt-get install gnupg2 pass` 명령 수행
       * 디지털 서명, 인증과 관련된 도구(툴) 설치
+ 
       ~~~console
       root@kmj-01:~# docker login
       Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
