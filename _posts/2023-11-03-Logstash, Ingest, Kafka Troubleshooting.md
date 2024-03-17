@@ -10,7 +10,7 @@ tags: [Logstash, Ingest, Kafka, Troubleshooting]
 
 ## **Logstash 죽었을 때**
 
-1. ps - ef | grep 로 pid 숫자 확인
+1. `ps - ef | grep logstash` 로 pid 숫자 확인
 
 2. 재기동 
 - 포그라운드 확인 : logstash-8.1.3_metric으로 들어가서 bin/logstash -f beat_metric.conf 로 다시 재기동 (포그라운드로 일단 되는 지 확인)
@@ -22,7 +22,7 @@ tags: [Logstash, Ingest, Kafka, Troubleshooting]
 ## **Ingest 죽었을 때**
 
 
-1. ps - ef | grep 로 pid 숫자 확인
+1. `ps - ef | grep ingest` 로 pid 숫자 확인
 
 2. 재기동 
 - 포그라운드 확인 : logstash-8.1.3으로 들어가서 bin/logstash -f kafka.conf 로 다시 재기동 (포그라운드로 일단 되는 지 확인)
@@ -35,7 +35,7 @@ tags: [Logstash, Ingest, Kafka, Troubleshooting]
 
 ### **Kafka 서버 죽었을 때**
 
-1. ps - ef | grep 로 pid 숫자 확인
+1. `ps - ef | grep kafka`로 pid 숫자 확인
 
 2. 재기동 
 - 포그라운드 확인 : kafka-2.12_2.6.0으로 들어가서 ./bin/kafka-server-start.sh ./config/server.properties로 다시 재기동 (포그라운드로 일단 되는 지 확인)
@@ -46,7 +46,7 @@ tags: [Logstash, Ingest, Kafka, Troubleshooting]
 
 ### **Zookeeper 서버 죽었을 때**
 
-1. ps - ef | grep 로 pid 숫자 확인
+1. `ps - ef | grep zookeeper`로 pid 숫자 확인
 
 2. 재기동 
 - 포그라운드 확인 : kafka-2.12_2.6.0으로 들어가서 ./bin/zookeeper-server-start.sh ./config/zookeeper.properties로 다시 재기동 (포그라운드로 일단 되는 지 확인)
