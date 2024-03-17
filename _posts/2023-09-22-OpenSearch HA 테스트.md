@@ -7,7 +7,7 @@ tags: [OpenSearch, Research]
 
 # OpenSearch HA 테스트
 
-## 2 nodes - all master,data
+## 2 nodes - all master,data로 설정
 
 ### setting
 
