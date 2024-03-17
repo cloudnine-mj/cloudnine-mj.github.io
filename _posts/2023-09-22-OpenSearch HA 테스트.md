@@ -228,7 +228,7 @@ ip            heap.percent ram.percent cpu load_1m load_5m load_15m node.role no
 ```
 
 
-## 결론
+## 결론!!
 
 - **2 node 상황에서 cluster HA는 불가능하다. ( node의 roles과 무관하게 )**
 - **3 node 상황에서 cluster HA는 문제없이 작동한다. ( 모든 node가 cluster_manager여야 함)**
