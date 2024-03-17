@@ -13,8 +13,7 @@ tags: [Opensearch, ELK, Research]
 
 ## Transport layer
 
-- 이쪽 레이어는 Cluster 설정 시의 ssl 설정이다. 
-  사이트 요건 없으면 스킵해도 문제는 없을 것 같은데…일단 쓰니까…
+- Transport layer는 Cluster 설정 시의 ssl 설정이다. 
 
 ### plugins.security.ssl.transport.pemkey_filepath
 
@@ -51,7 +50,7 @@ plugins.security.ssl.transport.pemtrustedcas_filepath: ca.cert
 
 ## HTTPS layer
 
-- 이쪽은 api server, 즉 우리가 curl 등을 통해 접속하는 웹서버의 https 규격이다.
+- HTTPS layer는 api server, 즉 우리가 curl 등을 통해 접속하는 웹서버의 https 규격이다.
 
 ### plugins.security.ssl.http.enabled: true
 
