@@ -158,7 +158,7 @@ GET ccr-followindex/_search
 POST _plugins/_replication/ccr-followerindex/_stop { } 
 ```
 
-# 결론
+## 결론
 
 - CCR은 기존 클러스터 설정과는 무관하며, 복제될 추가 노드에 remote_cluster_client 옵션을 추가해서 해결한다.
 - CCR을 사용 시 follower 노드의 인덱스는 read-only로 작동한다.
