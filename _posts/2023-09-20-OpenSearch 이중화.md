@@ -34,7 +34,7 @@ tags: [OpenSearch, Research]
 
 - Ingest pipeline을 사용하기 위한 노드
 - [https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html)
-- 데이터 전처리를 해주는 기능으로 볼 수 있을 것 같다.
+- 데이터 전처리를 해주는 기능으로 볼 수 있을 것 같다.ㅅㄷ
 
 ### Coordinating node
 
@@ -57,7 +57,7 @@ tags: [OpenSearch, Research]
 
 이런 식으로도 구성할 수 있을 것이다.
 
-# 설정
+## 설정
 
 - 해당 설정으로 진행
 
@@ -120,7 +120,7 @@ node.roles: [master, data]
 
 ```
 
-# 기동, 확인
+## OpenSearch 기동, 확인
 
 
 
@@ -143,7 +143,7 @@ ip            heap.percent ram.percent cpu load_1m load_5m load_15m node.role no
 
 ```
 
-# Troubleshooting
+## Troubleshooting
 
 - Cluster uuid 에러
 
