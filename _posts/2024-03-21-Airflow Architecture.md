@@ -1,8 +1,8 @@
 ---
 key: jekyll-text-theme
-title: 'Workflow'
-excerpt: 'Airflow, Dagster, Prefect + Workflow Task 😎'
-tags: [Airflow, Dagster, Prefect+Workflow, Research]
+title: 'Airflow Architecture'
+excerpt: 'Airflow 😎'
+tags: [Airflow, Research]
 ---
 
 # Ariflow Arhcitecture
