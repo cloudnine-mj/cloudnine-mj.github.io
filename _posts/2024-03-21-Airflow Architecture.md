@@ -54,6 +54,6 @@ tags: [Airflow, Research]
 
 * 이미지를 만들고 관리하고 코드를 최대한 배포하기 쉬운 환경 구성에 목표를 둬야 한다
 
-### Externel service
+### External service
 
 * Log를 Minio 등으로 대체할 수 있는가? code를 어떤식으로 관리할 것인가? 사용할 수 있는 것들이 있다면 사용할 수 있는 것을 찾아야 함.
