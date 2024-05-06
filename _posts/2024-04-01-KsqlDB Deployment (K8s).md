@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'KsqlDB Deployment (K8s)'
 excerpt: 'KsqlDB 설치 😎'
-tags: [KsqlDB, 데이터 가공]
+tags: [KsqlDB, KsqlDB 설치, 데이터 가공]
 ---
 
 
