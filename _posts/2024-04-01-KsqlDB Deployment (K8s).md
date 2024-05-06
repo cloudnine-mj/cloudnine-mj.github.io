@@ -226,10 +226,8 @@ spec:
         value: "ksql http://ksqldb-server:8088"
 ```
 
-	* 배포
-
-
 ```
+# 배포
 get pod -n ksqldb
 NAME                                            READY   STATUS    RESTARTS   AGE
 ksqldb-cli-pod                                  1/1     Running   0          136m
@@ -245,9 +243,9 @@ test-cluster-zookeeper-0                        1/1     Running   0          178
 * kubernetes에서 배포했기 때문에 로컬에서 접속하기위해선 port forwarding이 필요 
 * 따라서 로드밸런서를 추가할 yml 파일을 아래와 같이 작성함.
 
-```
-ksqldb-server-loadbalancer.yml
+	* ksqldb-server-loadbalancer.yml
 
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -262,9 +260,8 @@ spec:
   type: LoadBalancer
 ```
 
-* port-forwarding
-
 ```
+# port-forwarding
 kubectl port-forward service/ksqldb-server-service 8088:8088 -n ksqldb
 Forwarding from 127.0.0.1:8088 -> 8088
 ```
@@ -272,7 +269,7 @@ Forwarding from 127.0.0.1:8088 -> 8088
 
 ## 접속 확인
 
-* 웹브라우저로 cluster 상태 확인 http://127.0.0.1:8088/info
+* 웹 브라우저로 cluster 상태 확인 http://127.0.0.1:8088/info
 
 * CLI 접속
 
