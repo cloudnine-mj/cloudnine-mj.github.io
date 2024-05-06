@@ -180,7 +180,7 @@ spec:
             claimName: ksqldb-plugins-pvc
 ```
 	
-	* 배포
+* 배포
 	
 ```
 kubectl apply -f ksqldb-server.yml -n ksqldb
