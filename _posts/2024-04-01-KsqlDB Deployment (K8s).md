@@ -226,7 +226,8 @@ spec:
         value: "ksql http://ksqldb-server:8088"
 ```
 
-* 배포
+	* 배포
+
 
 ```
 get pod -n ksqldb
@@ -278,4 +279,4 @@ Forwarding from 127.0.0.1:8088 -> 8088
 ```
 kubectl exec -it ksqldb-cli-pod -n ksqldb -- /bin/bash
 ```
-	* ksql http://ksqldb-server-service:8088  ← 서비스 이름:port로 접속해야함
+	* ksql http://ksqldb-server-service:8088  ← 서비스 이름:port로 접속해야 함.
