@@ -9,11 +9,11 @@ tags: [Sidecar, Prometheus]
 
 * Prometheus 간의 통합은 federation이 있다
 
-* 문제는 이 federation 기능이 대규모의 쿼리를 날리게 되면서 메모리를 차지하고 prometheus instance에 큰 부담을 준다는 사실임.
+* 문제는 이 federation 기능이 대규모의 쿼리를 날리게 되면서 메모리를 차지하고 Prometheus instance에 큰 부담을 준다는 사실임.
 
-* thanos sidecar를 통해 이 부분을 개선하고 통합할 수 있음.
+* Thanos Sidecar를 통해 이 부분을 개선하고 통합할 수 있음.
 
-* thanos sidecar는 프로메테우스의 tsdb를 직접 attach하기 때문에 메모리 등의 케파 문제에서 상대적으로 부하가 덜하다고 볼 수 있다. 내부적으로 gRPC를 이용하는 것으로 보인다.
+* Thanos Sidecar는 Prometheus의 TSDB를 직접 attach하기 때문에 메모리 등의 케파 문제에서 상대적으로 부하가 덜하다고 볼 수 있다. 내부적으로 gRPC를 이용하는 것으로 보인다.
 
 ## 구성
 
@@ -64,15 +64,15 @@ tar -xvf thanos-0.34.1.linux-amd64.tar.gz
 
 * 실행할 때 옵션을 준다.
 
-* tsdb.path : prometheus에서 사용하는 tsdb에 접속할 수 있도록 위치를 설정
+* tsdb.path : Prometheus에서 사용하는 TSDB에 접속할 수 있도록 위치를 설정
 
-* prometheus.url : prometheus의 endpoint
+* prometheus.url : Prometheus의 endpoint
 
 * objstore.config-file : 필수사항은 아니지만, minio를 통해 cold storage를 구성하기로 했으므로 이것도 테스트 용도로 넣어봄.
 
-* http-address : sidecar의 endpoint
+* http-address : Sidecar의 endpoint
 
-* grpc-address : sidecar의 gRPC 프로토콜 엔드포인트. querier에선 해당 포트를 보게 된다.
+* grpc-address : Sidecar의 gRPC 프로토콜 엔드포인트. querier에선 해당 포트를 보게 된다.
 
 ```
 실행할때 옵션을 준다.
@@ -121,9 +121,9 @@ grpc-address : sidecar의 gRPC 프로토콜 엔드포인트. querier에선 해�
 
 ## Sidecar 연동 확인
 
-* Query 웹서버에 접속해야 함.
+* Query 웹 서버에 접속해야 함.
 
-* 정상적으로 연동되었을 경우 sidecar 항목에 추가되고, 라벨을 확인할 수 있다.
+* 정상적으로 연동되었을 경우 Sidecar 항목에 추가되고, 라벨을 확인할 수 있다.
 
 * graph에서 쿼리를 통해서 결과 확인 가능.
 
@@ -134,7 +134,7 @@ grpc-address : sidecar의 gRPC 프로토콜 엔드포인트. querier에선 해�
 
 * Prometheus의 min-block-duration과 max-block-duration을 설정해 줘야 하고 같아야 한다.
 
-* 이는 Sidecar에서 compaction된 데이터를 다루지 않기 위함인데( Thanos Sidecar에서 따로 compaction을 수행함 ) 각 값이 서로 다르면 thanos와 Prometheus간 compaction 시기에 혼란이 올 수 있어 데이터 정립성 문제가 생길 수 있다 판단한 것 같다.
+* 이는 Sidecar에서 compaction된 데이터를 다루지 않기 위함인데( Thanos Sidecar에서 따로 compaction을 수행함 ) 각 값이 서로 다르면 Thanos와 Prometheus간 compaction 시기에 혼란이 올 수 있어 데이터 정립성 문제가 생길 수 있다 판단한 것 같다.
 
 * Prometheus 기동 시 해당 옵션을 줘야 함.
 
@@ -149,3 +149,4 @@ grpc-address : sidecar의 gRPC 프로토콜 엔드포인트. querier에선 해�
 * external label(예시에서는 cluster=’prom_vm’)만으로는 조회가 불가능하다.
 * external label은 thanos 내부에서 다르게 취급하기 때문인 것 같음.
 * 다른 label과 병용하면 문제는 없다.
+
