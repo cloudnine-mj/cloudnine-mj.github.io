@@ -121,7 +121,7 @@ tar -xvf thanos-0.34.1.linux-amd64.tar.gz
 
 * Prometheus의 min-block-duration과 max-block-duration을 설정해 줘야 하고 같아야 한다.
 
-* 이는 Sidecar에서 compaction된 데이터를 다루지 않기 위함인데( Thanos Sidecar에서 따로 compaction을 수행함 ) 각 값이 서로 다르면 Thanos와 Prometheus간 compaction 시기에 혼란이 올 수 있어 데이터 정립성 문제가 생길 수 있다 판단한 것 같다.
+* 이는 Sidecar에서 compaction된 데이터를 다루지 않기 위함인데(Thanos Sidecar에서 따로 compaction을 수행함) 각 값이 서로 다르면 Thanos와 Prometheus간 compaction 시기에 혼란이 올 수 있어 데이터 정립성 문제가 생길 수 있다 판단한 것 같다.
 
 * Prometheus 기동 시 해당 옵션을 줘야 함.
 
