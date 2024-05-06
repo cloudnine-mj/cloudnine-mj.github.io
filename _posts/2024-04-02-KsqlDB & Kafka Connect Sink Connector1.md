@@ -78,7 +78,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: kafka-connect-plugins-config-pvc
-  namespace: dataplatform
+  namespace: datatest
 spec:
   accessModes:
     - ReadWriteMany
