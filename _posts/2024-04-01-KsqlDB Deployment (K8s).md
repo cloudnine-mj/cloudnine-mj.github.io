@@ -130,7 +130,7 @@ docker pull confluentinc/ksqldb-server:latest
 
 	* ksqldb-server.yml
 	
-	```
+```
 	apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -179,12 +179,12 @@ spec:
         - name: ksqldb-classpath
           persistentVolumeClaim:
             claimName: ksqldb-plugins-pvc
-	```
+```
 	
 	* 배포
 	
-	```
-	kubectl apply -f ksqldb-server.yml -n ksqldb
+```
+kubectl apply -f ksqldb-server.yml -n ksqldb
 
 #pod 확인
 kubectl get pod -n ksqldb
@@ -194,10 +194,8 @@ strimzi-cluster-operator-7bb5468c59-qkxjb       1/1     Running   0          178
 test-cluster-entity-operator-55bb7d7849-9slqv   2/2     Running   0          177m
 test-cluster-kafka-0                            1/1     Running   0          178m
 test-cluster-zookeeper-0                        1/1     Running   0          178m
-	```
+```
 	
 * KsqlDB-CLI
-
-
 
   
