@@ -120,7 +120,7 @@ spec:
 
 * Prometheus를 배포 시 추가해줘야 되는 Container가 존재한다.
 
-* Sidecar를 같이 배포해도 되고, 따로 배포해서 pv와 서비스에 붙여주면 되지만 굳이 그럴 이유가 없고 설정도 귀찮아 1 pod 2 container로 설정
+* Sidecar를 같이 배포해도 되고, 따로 배포해서 pv와 서비스에 붙여주면 되지만 굳이 그럴 이유가 없어서 1 pod 2 container로 설정하는 것으로 결정.
 
 * Sidecar를 따로 배포할 때는 pv를 동일하게 마운트하고 prometheus의 서비스를 묶어 주면 된다.
 
