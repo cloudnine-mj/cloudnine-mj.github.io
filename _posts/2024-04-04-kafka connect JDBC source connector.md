@@ -26,7 +26,7 @@ tags: [KsqlDB, JDBC connect, 데이터 가공]
 
 * connector는 해당 DB에 table이 있어야지만 생성이 가능함.
 
-### 필요한 플러그인, connector 설치
+## 필요한 플러그인, connector 설치
 
 * confluent JDBC connector 10.7.4  
 
@@ -36,7 +36,7 @@ tags: [KsqlDB, JDBC connect, 데이터 가공]
 
 * 받은 플러그인을 class path안에 전부 넣어준다.
 
-* source connector 생성 
+### source connector 생성 
 
 ```
 #connector의 주소
@@ -104,7 +104,7 @@ http://192.168.2.52:30099/connectors/mariadbSourceTest/status
 }
 ```
 
-## source connect 연결 확인
+### source connect 연결 확인
 
 * Database 에서 데이터 insert
 
