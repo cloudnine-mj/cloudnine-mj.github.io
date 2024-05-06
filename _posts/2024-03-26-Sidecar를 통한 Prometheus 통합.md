@@ -32,7 +32,7 @@ tags: [Sidecar, Prometheus]
 
 * Querier
 
-	* Querier는 Sidecar가 수집한 정보를 취합하는 역할을 한다
+	* Querier는 Sidecar가 수집한 정보를 취합하는 역할을 한다.
 
 	* 두 개의 Sidecar를 연동하여 쿼리로 확인할 것임.
 
@@ -40,7 +40,7 @@ tags: [Sidecar, Prometheus]
 
 * prometheus.yml
 
-* external_label은 아무렇게나 설정해도 문제는 없고 팀 내부에서 구분할 수만 있으면 된다.
+* external_label은 임의대로 설정해도 문제는 없을 것 같고 구분할 수만 있으면 된다.
 
 ```
 global:
@@ -62,7 +62,7 @@ tar -xvf thanos-0.34.1.linux-amd64.tar.gz
 
 ### Thanos 설정
 
-* 실행할때 옵션을 준다.
+* 실행할 때 옵션을 준다.
 
 * tsdb.path : prometheus에서 사용하는 tsdb에 접속할 수 있도록 위치를 설정
 
