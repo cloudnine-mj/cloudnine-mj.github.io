@@ -159,7 +159,6 @@ spec:
           env:
             - name: KSQL_BOOTSTRAP_SERVERS
               value: "http://34.173.64.192:9092"
-              #value: "kafka-cluster-kafka-bootstrap.dataplatform.svc.cluster.local:9092"
             - name: KSQL_KSQL_CONNECT_URL
               value: "http://10.97.208.94:8083"
             - name: KSQL_KSQL_EXTENSION_DIR
