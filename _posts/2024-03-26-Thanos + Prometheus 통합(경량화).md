@@ -9,9 +9,9 @@ tags: [Thanos, Prometheus]
 # Thanos + Prometheus 통합(경량화)
 
 
-* Thanos를 Prometheus 통합 용도로 사용할 시 최소한의 설치로 작동하게 해야 함
+* Thanos를 Prometheus 통합 용도로 사용할 시 최소한의 설치로 작동하게 해야 함.
 
-* Thanos Sidecar는 반드시 필요하지만 Thanos는 querier만 있어도 큰 문제는 없음
+* Thanos Sidecar는 반드시 필요하지만 Thanos는 querier만 있어도 큰 문제는 없음.
 
 
 
