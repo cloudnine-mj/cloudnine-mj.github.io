@@ -93,26 +93,10 @@ CREATE TABLE avg_readings AS
 
 * 그때 당시의 데이터를 한번 조회하고 query 종료
 
-### Ksql Windowing
+### KsqlDB Windowing
 
-* Streaming Process에서는 데이터가 무한하다고 가정하기 때문에 데이터가 들어와 aggregation을 한다고 하면 Partition이 없기 때문에 aggregation을 이론상 진행 할 수 없음, 그 때 필요한것이 Windowing이며 현재 Tubling, Hopping, Session 사용 가능
-
-### Windowed Join
-
-* KsqlDB 는 특정 window 내에 속한 이벤트 Stream 을 join 할 수 있음. 각 이벤트를 기준으로 ‘n분 이전’ 부터 ‘m분 이후’ 까지와 같은 설정을 할 수 있음.
-
-```
-SELECT o.orderId, o.itemProducts, p.paymentId, p.isSucess
-FROM STREAM_ORDER o
-LEFT JOIN STREAM_PAYMENT p
-WITHIN 1 HOURS [WITHIN 20 MINUTES, 40 MINUTES]
-ON o.orderId = p.orderId
-EMIT CHANGES;
-```
-
-* WITHIN 구문을 사용해 join 에서 사용할 윈도우의 크기를 설정할 수 있으며, 윈도우는 ‘n {timeUnit} 이전’ 부터 ‘m {timeUnit} 이후’ 형태로 생성이 됨
-
-* n 과 m 값을 별도로 설정하지 않은 WITHIN 절을 사용한다면 ksqlDB 내부에서는 ‘n {timeUnit} 이전’ 부터 ‘n {timeUnit} 이후’ 까지 윈도우를 생성, 만약 n 과 m 값을 다르게 설정하고 싶다면 위의 SQL 구문의 대괄호 부분처럼 다른 값을 직접 설정해야 함.
+* Streaming Process에서는 데이터가 무한하다고 가정.
+* 데이터가 들어와 aggregation을 한다고 하면 Partition이 없기 때문에 aggregation을 이론상 진행 할 수 없음, 그 때 필요한것이 Windowing이며 현재 Tubling, Hopping, Session 사용 가능
 
 ### Windowed Agreggation
 
@@ -132,11 +116,30 @@ WINDOW TUMBLING (
 )
 GROUP BY o.userId
 ```
+
 * size : Window의 크기 및 timeUnit 설정
 
 * RETENTION : Window의 남겨둘 시간
 
 * Grace Period : 네트워크 상의 delay에 의해 늦게 들어온 Stream을 얼마나 기다려서 join을 해줄지 결정
+
+### Windowed Join
+
+* KsqlDB 는 특정 window 내에 속한 이벤트 Stream 을 join 할 수 있음. 각 이벤트를 기준으로 ‘n분 이전’ 부터 ‘m분 이후’ 까지와 같은 설정을 할 수 있음.
+
+```
+SELECT o.orderId, o.itemProducts, p.paymentId, p.isSucess
+FROM STREAM_ORDER o
+LEFT JOIN STREAM_PAYMENT p
+WITHIN 1 HOURS [WITHIN 20 MINUTES, 40 MINUTES]
+ON o.orderId = p.orderId
+EMIT CHANGES;
+```
+
+* WITHIN 구문을 사용해 join 에서 사용할 윈도우의 크기를 설정할 수 있으며, 윈도우는 ‘n {timeUnit} 이전’ 부터 ‘m {timeUnit} 이후’ 형태로 생성이 됨
+
+* n 과 m 값을 별도로 설정하지 않은 WITHIN 절을 사용한다면 ksqlDB 내부에서는 ‘n {timeUnit} 이전’ 부터 ‘n {timeUnit} 이후’ 까지 윈도우를 생성, 만약 n 과 m 값을 다르게 설정하고 싶다면 위의 SQL 구문의 대괄호 부분처럼 다른 값을 직접 설정해야 함.
+
 
 
 ## KsqlDB Architecture
