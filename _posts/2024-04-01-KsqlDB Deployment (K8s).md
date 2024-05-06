@@ -131,7 +131,7 @@ docker pull confluentinc/ksqldb-server:latest
 	* ksqldb-server.yml
 	
 ```
-	apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ksqldb-server-pod
@@ -195,6 +195,87 @@ test-cluster-kafka-0                            1/1     Running   0          178
 test-cluster-zookeeper-0                        1/1     Running   0          178m
 ```
 	
-* KsqlDB-CLI
+### KsqlDB-CLI
 
-  
+*  [https://hub.docker.com/r/confluentinc/ksqldb-server/tags](https://hub.docker.com/r/confluentinc/ksqldb-server/tags) 를 참고
+	
+* 알맞은 버전의 ksqlDB-CLI image를 pull (latest 버전 사용)
+
+* docker 이미지를 K8s에 배포
+
+	* ksqldb-cli.yml
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ksqldb-cli-pod
+spec:
+  containers:
+  - name: ksqldb-cli-container
+    image: confluentinc/ksqldb-cli:latest
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "while true; do sleep 30; done"
+    args:
+      - "-Command"
+      - "& { while ($true) { Start-Sleep -Seconds 30 } }"
+    env:
+      - name: KSQL_SERVER 
+        value: "ksql http://ksqldb-server:8088"
+```
+
+* 배포
+
+```
+get pod -n ksqldb
+NAME                                            READY   STATUS    RESTARTS   AGE
+ksqldb-cli-pod                                  1/1     Running   0          136m
+ksqldb-server-pod                               1/1     Running   0          77m
+strimzi-cluster-operator-7bb5468c59-qkxjb       1/1     Running   0          178m
+test-cluster-entity-operator-55bb7d7849-9slqv   2/2     Running   0          177m
+test-cluster-kafka-0                            1/1     Running   0          178m
+test-cluster-zookeeper-0                        1/1     Running   0          178m
+```
+
+## 로컬에서 cli 접속
+
+* kubernetes에서 배포했기 때문에 로컬에서 접속하기위해선 port forwarding이 필요 
+* 따라서 로드밸런서를 추가할 yml 파일을 아래와 같이 작성함.
+
+```
+ksqldb-server-loadbalancer.yml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ksqldb-server-service
+spec:
+  selector:
+    app: ksqldb-server  #ksqldb-server.yml의 label과 일치해야함
+  ports:
+    - protocol: TCP
+      port: 8088
+      targetPort: 8088
+  type: LoadBalancer
+```
+
+* port-forwarding
+
+```
+kubectl port-forward service/ksqldb-server-service 8088:8088 -n ksqldb
+Forwarding from 127.0.0.1:8088 -> 8088
+```
+
+
+## 접속 확인
+
+* 웹브라우저로 cluster 상태 확인 http://127.0.0.1:8088/info
+
+* CLI 접속
+
+```
+kubectl exec -it ksqldb-cli-pod -n ksqldb -- /bin/bash
+```
+	* ksql http://ksqldb-server-service:8088  ← 서비스 이름:port로 접속해야함
