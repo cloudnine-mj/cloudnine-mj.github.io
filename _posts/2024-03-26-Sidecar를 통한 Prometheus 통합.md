@@ -74,19 +74,6 @@ tar -xvf thanos-0.34.1.linux-amd64.tar.gz
 
 * grpc-address : Sidecar의 gRPC 프로토콜 엔드포인트. querier에선 해당 포트를 보게 된다.
 
-```
-실행할때 옵션을 준다.
-
-tsdb.path : prometheus에서 사용하는 tsdb에 접속할 수 있도록 위치를 설정
-
-prometheus.url : prometheus의 endpoint
-
-objstore.config-file : 필수사항은 아니지만, minio를 통해 cold storage를 구성하기로 했으므로 이것도 테스트 용도로 넣어봄.
-
-http-address : sidecar의 endpoint
-
-grpc-address : sidecar의 gRPC 프로토콜 엔드포인트. querier에선 해당 포트를 보게 된다.
-```
 
 ## Querier 설정
 
