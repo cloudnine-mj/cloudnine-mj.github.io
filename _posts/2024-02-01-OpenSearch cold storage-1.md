@@ -5,7 +5,7 @@ excerpt: ' OpenSearch cold storage research 😎'
 tags: [Opensearch, Cold storage, Research]
 ---
 
-👉 Docs : [https://blog.min.io/search-with-opensearch-and-minio/](https://blog.min.io/search-with-opensearch-and-minio/)
+👉 참고 자료 : [https://blog.min.io/search-with-opensearch-and-minio/](https://blog.min.io/search-with-opensearch-and-minio/)
 
 
 # Architecture

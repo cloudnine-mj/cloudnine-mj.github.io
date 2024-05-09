@@ -16,14 +16,15 @@ tags: [Minio, k8s, Research]
 # 구성
 
 * K8s는 minio operator가 존재하지만, tenant 분리 등의 조건이 필요하다.
+* 외부 패키징 등에서 난점이 존재할 수 있어(yaml파일 없음) yaml로 우선 구성함.
 
-| 구분       | K8s 정보         |
-| ---------- | ---------------- |
-| Namespace  | minio            |
-| Deployment | minio            |
-| PVC        | minio-pv-claim   |
-| PV         | minio-pv         |
-| Service    | minio-appservice |
+| 구분               | VM 정보          | 구분       | K8s 정보         |
+| ------------------ | ---------------- | ---------- | ---------------- |
+| 주소               | 10.0.0.150       | Namespace  | minio            |
+| minio Console      | 10.0.0.150:31000 | Deployment | minio            |
+| k8s worker         | k8s-worker-3     | PVC        | minio-pv-claim   |
+| Moutpoint          | /mnt/minio       | PV         | minio-pv         |
+| yaml file location | /yaml/minio      | Service    | minio-appservice |
 
 
 
