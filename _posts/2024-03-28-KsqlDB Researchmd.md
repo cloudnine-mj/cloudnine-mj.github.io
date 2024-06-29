@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'KsqlDB Research'
 excerpt: 'KsqlDB 파헤치기 😎'
-tags: [KsqlDB, Research]
+tags: [KsqlDB]
 ---
 
 # KsqlDB Research
@@ -33,7 +33,7 @@ tags: [KsqlDB, Research]
 * 현재 상태 기반의 최신값으로 업데이트되어 보관된 데이터
 
 ### Stateless
-	
+
 * 상태 기반으로 Processing을 하는 것
 * Stateless는 상태에 영향을 주지 않는 연산(ex group by, count ) stream에서 key값 외의 value에 사칙 연산 등을 하는 것은 state에 영향을 주지 않기 때문에 stateless
 
@@ -56,7 +56,7 @@ VALUES ('sensor-2', 41, 'motor');
 ```
 
 ### stateful
-	
+
 :star:  참고 자료 : [https://developer.confluent.io/courses/inside-ksqldb/stateful-operations/](https://developer.confluent.io/courses/inside-ksqldb/stateful-operations/) 
 
 * Table이 연산이 되고 난 이후 상태 기반으로 값이 update되는 것

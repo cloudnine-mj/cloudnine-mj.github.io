@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'OpenSearch cold storage-1'
 excerpt: ' OpenSearch cold storage research 😎'
-tags: [Opensearch, Cold storage, Research]
+tags: [OpenSearch, Cold storage]
 ---
 
 👉 참고 자료 : [https://blog.min.io/search-with-opensearch-and-minio/](https://blog.min.io/search-with-opensearch-and-minio/)

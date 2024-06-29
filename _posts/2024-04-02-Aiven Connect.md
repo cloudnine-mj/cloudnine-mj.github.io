@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Aiven Connect 설치'
 excerpt: 'Opensearch Connect 설치/설정 😎'
-tags: [KsqlDB, Aiven connect, 데이터 가공]
+tags: [KsqlDB, Aiven connect]
 ---
 
 # Aiven Connect 설치

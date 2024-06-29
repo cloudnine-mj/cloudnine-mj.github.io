@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'K8s Application Deployment 과제'
 excerpt: ' Docker/K8s 공부하기😎'
-tags: [K8s]
+tags: [Docker, K8s]
 ---
 
 # 실습 과제

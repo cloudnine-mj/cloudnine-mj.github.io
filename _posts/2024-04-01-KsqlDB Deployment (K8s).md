@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'KsqlDB Deployment (K8s)'
 excerpt: 'KsqlDB 설치 😎'
-tags: [KsqlDB, KsqlDB 설치, 데이터 가공]
+tags: [KsqlDB]
 ---
 
 
@@ -179,7 +179,7 @@ spec:
           persistentVolumeClaim:
             claimName: ksqldb-plugins-pvc
 ```
-	
+
 * 배포
 	
 ```
@@ -194,7 +194,7 @@ test-cluster-entity-operator-55bb7d7849-9slqv   2/2     Running   0          177
 test-cluster-kafka-0                            1/1     Running   0          178m
 test-cluster-zookeeper-0                        1/1     Running   0          178m
 ```
-	
+
 ### KsqlDB-CLI
 
 *  [https://hub.docker.com/r/confluentinc/ksqldb-server/tags](https://hub.docker.com/r/confluentinc/ksqldb-server/tags) 를 참고

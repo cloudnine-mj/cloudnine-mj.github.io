@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'OpenSearch - Shards 사이즈별 성능 테스트'
 excerpt: ' OpenSearch research 😎'
-tags: [Opensearch, Research]
+tags: [OpenSearch]
 ---
 
 # OpenSearch - Shards 사이즈별 성능 테스트

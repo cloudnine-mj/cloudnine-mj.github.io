@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'ELK 구축 - OpenSearch CCR'
 excerpt: ' OpenSearch cold storage research 😎'
-tags: [Opensearch, ELK, Research]
+tags: [OpenSearch, ELK]
 ---
 
 # OpenSearch CCR

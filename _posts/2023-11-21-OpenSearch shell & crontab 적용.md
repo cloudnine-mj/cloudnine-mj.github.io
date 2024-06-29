@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'OpenSearch - shell 파일 적용'
 excerpt: 'Kafka Research😎'
-tags: [Kafka, Research]
+tags: [OpenSearch, ELK]
 ---
 
 

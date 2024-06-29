@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Kafka connect JDBC source connector'
 excerpt: 'JDBC Connect 설치/설정 😎'
-tags: [KsqlDB, JDBC connect, 데이터 가공]
+tags: [KsqlDB, JDBC connect]
 ---
 
 # Kafka connect JDBC source connector

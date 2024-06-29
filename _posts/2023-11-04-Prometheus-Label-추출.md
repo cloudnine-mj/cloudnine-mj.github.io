@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Prometheus Label 추출'
 excerpt: 'Prometheus Lable 추출하는 방법 찾아보기 😎'
-tags: [Prometheus, Research]
+tags: [Prometheus]
 ---
 
 # Prometheus Label 추출

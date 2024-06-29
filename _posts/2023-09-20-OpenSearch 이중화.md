@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'ELK 구축 - OpenSearch 이중화'
 excerpt: 'OpenSearch Research  😎'
-tags: [OpenSearch, Research]
+tags: [OpenSearch]
 ---
 
 👉 Docs : [https://opensearch.org/docs/latest/tuning-your-cluster/](https://opensearch.org/docs/latest/tuning-your-cluster/)

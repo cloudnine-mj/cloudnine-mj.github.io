@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Kafka - Topic, Consumer, Consumer Group'
 excerpt: 'Kafka Research😎'
-tags: [Kafka, Research]
+tags: [Kafka]
 ---
 
 # Kafka - Topic, Consumer, Consumer Group

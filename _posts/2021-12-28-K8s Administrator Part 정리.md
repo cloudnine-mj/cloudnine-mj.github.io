@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'K8s Administrator Part 정리'
 excerpt: ' Docker/K8s 공부하기😎'
-tags: [K8s]
+tags: [Docker, K8s]
 ---
 
 

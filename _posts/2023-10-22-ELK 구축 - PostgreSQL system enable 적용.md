@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'PostgreSQL system enable 적용'
 excerpt: ' system enable 설정하기 😎'
-tags: [PostgreSQL]
+tags: [PostgreSQL, DB]
 ---
 
 # PostgreSQL system enable 설정이란?
@@ -49,7 +49,7 @@ root@ubuntu22:/etc/systemd/system# systemctl daemon-reload
 root@ubuntu22:/etc/systemd/system# systemctl start postgres.service 
 ```
 
- 
+
 ## 3. Postgresql 서비스 상태 확인
 
 ```

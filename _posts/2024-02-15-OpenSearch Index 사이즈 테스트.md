@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'OpenSearch - Index 사이즈 테스트'
 excerpt: ' OpenSearch research 😎'
-tags: [Opensearch, Research]
+tags: [OpenSearch, Research]
 ---
 
 # OpenSearch - Index 사이즈 테스트

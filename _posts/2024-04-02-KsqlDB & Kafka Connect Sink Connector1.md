@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'KsqlDB & Kafka Connect Sink Connector - 1'
 excerpt: 'Opensearch Connect 설치/설정 😎'
-tags: [KsqlDB, Kafka connect, 데이터 가공]
+tags: [KsqlDB, Kafka connect]
 ---
 
 # KsqlDB & Kafka Connect Sink Connector - 1

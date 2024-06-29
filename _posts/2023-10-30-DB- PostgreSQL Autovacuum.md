@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'PostgreSQL Vacuum'
 excerpt: ' PostgreSQL Autovacuum Research😎'
-tags: [PostgreSQL, Research]
+tags: [PostgreSQL, DB]
 ---
 
 

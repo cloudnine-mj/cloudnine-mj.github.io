@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Minio - K8s로 구성'
 excerpt: 'Minio Storage Research 😎'
-tags: [Minio, k8s, Research]
+tags: [Minio, k8s]
 ---
 
 

@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Python code 정리'
 excerpt: ' coding test 준비 😎'
-tags: [Coding, Python]
+tags: [Coding]
 ---
 
 👉 코딩테스트에서 자주 쓸 수 있는 Python 코드 정리
@@ -41,5 +41,3 @@ while n > 0:
 
 
 
-
- 

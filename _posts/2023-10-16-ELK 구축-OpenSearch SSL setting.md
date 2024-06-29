@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'OpenSearch SSL setting'
 excerpt: ' OpenSearch research 😎'
-tags: [Opensearch, ELK, Research]
+tags: [OpenSearch, ELK]
 ---
 
 👉 Docs : [https://opensearch.org/docs/1.0/security-plugin/configuration/tls/](https://opensearch.org/docs/1.0/security-plugin/configuration/tls/)

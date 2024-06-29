@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Airflow Architecture'
 excerpt: 'Airflow 😎'
-tags: [Airflow, Research]
+tags: [Airflow]
 ---
 
 # Ariflow Arhcitecture

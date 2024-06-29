@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Prometheus란?'
 excerpt: 'Prometheus research 😎'
-tags: [Prometheus, Research]
+tags: [Prometheus]
 ---
 
 

@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Logstash - 원하지 않는 정보 override 대처법'
 excerpt: 'Logstash research 😎'
-tags: [Logstash, Research]
+tags: [Logstash]
 ---
 
 # Logstash - 원하지 않는 정보 override 대처법

@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'OpenSearch Index 생성 Query'
 excerpt: ' OpenSearch research 😎'
-tags: [Opensearch, ELK, Research]
+tags: [OpenSearch, ELK]
 ---
 
 # OpenSearch Index 생성

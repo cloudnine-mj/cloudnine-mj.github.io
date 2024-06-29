@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Logstash input - Kafka'
 excerpt: 'Logstash research 😎'
-tags: [Logstash, Kafka, Research]
+tags: [Logstash, Kafka]
 ---
 
 # Logstash input - Kafka

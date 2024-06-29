@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'ELK 구축 - OpenSearch Shard, Heap '
 excerpt: 'OpenSearch Research  😎'
-tags: [OpenSearch, Research]
+tags: [OpenSearch]
 ---
 
 👉 Docs : [https://www.elastic.co/kr/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster](https://www.elastic.co/kr/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster)

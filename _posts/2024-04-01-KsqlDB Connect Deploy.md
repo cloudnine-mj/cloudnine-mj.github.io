@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'KsqlDB Connect Deploy'
 excerpt: 'KsqlDB Connect 설치 😎'
-tags: [KsqlDB, KsqlDB connect, 데이터 가공]
+tags: [KsqlDB]
 ---
 
 

@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'ELK 구축 - OpenSearch HA 테스트'
 excerpt: 'OpenSearch Research  😎'
-tags: [OpenSearch, Research]
+tags: [OpenSearch]
 ---
 
 # OpenSearch HA 테스트
