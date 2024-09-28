@@ -1,3 +1,10 @@
+---
+key: jekyll-text-theme
+title: 'Process & Thread'
+excerpt: 'Process & Thread 😎'
+tags: [JAVA]
+---
+
 # 운영 체제 기본
 
 ## Process & Thread

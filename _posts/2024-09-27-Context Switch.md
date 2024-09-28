@@ -1,3 +1,10 @@
+---
+key: jekyll-text-theme
+title: 'Context Switch'
+excerpt: 'Context Switching 😎'
+tags: [JAVA]
+---
+
 # 운영 체제 기본
 
 ## Context Switch

@@ -1,3 +1,10 @@
+---
+key: jekyll-text-theme
+title: 'Parallel & Concurrent'
+excerpt: 'Parallel(병렬성) & Concurrent(동시성) 😎'
+tags: [JAVA]
+---
+
 # 운영 체제 기본
 
 ## Parallel(병렬성) & Concurrent(동시성)
