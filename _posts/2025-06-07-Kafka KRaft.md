@@ -45,7 +45,7 @@ tags: [Kafka]
 
 5. **ISR 정보 (In-Sync Replica)**
    - 각 파티션에 대해, 복제가 정상적으로 이루어지는 브로커는 누구인지
-  </details>
+</details>
 
 
 ## **KRaft의 등장과 배경**
