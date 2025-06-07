@@ -28,23 +28,23 @@ tags: [Kafka]
 
 <h4>주요 항목</h4>
 
-1. <strong>토픽(Topic) 정보</strong>  
+	1. <strong>토픽(Topic) 정보</strong>  
    - 어떤 토픽이 있는지  
    - 각 토픽이 몇 개의 파티션을 가지고 있는지  
    - 파티션의 리더 브로커는 누구인지
 
-2. <strong>브로커(Broker) 목록</strong>  
+	2. <strong>브로커(Broker) 목록</strong>  
    - 현재 클러스터에 어떤 브로커가 참여하고 있는지  
    - 각 브로커의 ID, 상태, 주소 등
 
-3. <strong>컨트롤러 상태</strong>  
+	3. <strong>컨트롤러 상태</strong>  
    - 현재 컨트롤러 역할을 맡고 있는 브로커는 누구인지  
    - 다른 컨트롤러 후보들은 누구인지
 
-4. <strong>ACL 및 권한 정보</strong>  
+	4. <strong>ACL 및 권한 정보</strong>  
    - 사용자나 애플리케이션이 어떤 리소스에 접근할 수 있는지
 
-5. <strong>ISR 정보 (In-Sync Replica)</strong>  
+	5. <strong>ISR 정보 (In-Sync Replica)</strong>  
    - 각 파티션에 대해, 복제가 정상적으로 이루어지는 브로커는 누구인지
 </details>
 
