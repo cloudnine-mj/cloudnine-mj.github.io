@@ -119,7 +119,7 @@ tags: [Kafka]
 
 ### **2. KRaft 모드**
 
-<img src="https://github.com/user-attachments/assets/93ceae08-5101-4245-a894-0d678c9fb647" width="50" height="50"/>
+<img src="https://github.com/user-attachments/assets/93ceae08-5101-4245-a894-0d678c9fb647" width="50" height="50">
 
 - 그림에서 보는 바와 같이 KRaft 모드에서는 Zookeeper가 사라진 것을 알 수 있습니다.
 - KRaft 모드는 Zookeeper와의 의존성을 제거하고, Kafka 단일 애플리케이션 내에서 메타데이터 관리 기능을 수행하는 독립적인 구조가 되는 것입니다.
