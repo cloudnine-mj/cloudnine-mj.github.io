@@ -12,6 +12,8 @@ tags: [Kafka]
         - Kafka의 중요도가 높아졌기 때문에, 버전 업그레이드나 설정 변경, 기능 실험 등을 쉽게 할 수 없게 되었다는 뜻 (즉, 안정성이 최우선이 되므로, 변화에 대해 신중하게 접근해야 한다는 얘기)
     - 이제는 KRaft에 대한 준비와 Zookeeper 모드로 운영 중인 Kafka를 마이그레이션 하는 방법 등에 대해서도 심도 있는 리서치가 필요함.
 
+---
+
 ## KRaft를 사용하면?
 
 - Apache Kafka의 새로운 메커니즘인 KRaft를 사용하면 메타데이터를 효율적으로 관리할 수 있습니다.
@@ -52,6 +54,7 @@ tags: [Kafka]
 </ol>
 </details>
 
+---
 
 ## KRaft의 등장과 배경
 
@@ -59,7 +62,8 @@ tags: [Kafka]
 - 이전까지 Kafka는 Apache ZooKeeper를 사용하여 클러스터 메타데이터의 관리와 조정을 담당했습니다.
 
 ```
-Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을 가져왔고,<br>이를 해결하기 위해 Kafka 자체 내에서 분산 시스템의 상태를 관리하는 방식을 도입하기로 결정됐습니다.
+- Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을 가져왔습니다.
+- 이를 해결하기 위해 Kafka 자체 내에서 분산 시스템의 상태를 관리하는 방식을 도입하기로 결정됐습니다.
 ```
 
 ### 😳 Zookeeper 사용 시 이슈가 되는 부분들
@@ -84,6 +88,8 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 - 또한 모니터링에 필요한 필수 메트릭을 이해하고 모니터링하는 방법까지 완전히 다릅니다.
 - 그 외에도 각 애플리케이션에서 빈번하게 발생하는 이슈 또는 장애 상황에 개별적으로 대처해야 하며, 두 애플리케이션 간 통신 이슈라도 발생한다면, 매우 곤혹스러울 것입니다.
 
+---
+
 ## **KRaft의 주요 목적**
 
 - KRaft의 주요 목적은 Kafka의 구조를 단순화하고 확장성을 향상시키기 위함입니다.
@@ -91,6 +97,8 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 - KRaft를 Kafka와 결합하여 운영 복잡성을 줄이고, 데이터 플랫폼의 충추 역할을 하는 Kafka의 전반적인 신뢰성과 관리 용이성을 개선하는데 기여할 수 있습니다.
 
 👉 Kafka를 더욱 강력하고 유연한 시스템으로 만들어 대규모 데이터 처리 환경에서의 효율성을 높일 수 있습니다.
+
+---
 
 ## **Zookeeper 모드 vs KRaft 모드**
 
@@ -186,6 +194,8 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 👉 Zookeeper 없이 Kafka가 알아서 리더 뽑고, 메타데이터도 자체적으로 관리함.
 👉 리더 죽으면 컨트롤러들끼리 투표해서 새 리더 뽑는 구조임!
 
+---
+
 ## **KRaft의 성능**
 
 - KRaft의 주요 성능 개선 중 하나는 파티션 리더 선출의 최적화입니다. 앞에서 잠깐 언급했지만, 컨트롤러의 주요 역할은 파티션의 리더를 선출하는 것입니다.
@@ -261,6 +271,7 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 
 👉 KRaft 모드는 메타데이터를 직접 메모리에 가지고 있고, Zookeeper 없이 동작하기 때문에 더 빠르며, 장애 발생 시 복구도 빨라졌습니다.
 
+---
 
 # 두 번째 스터디 목표
 
@@ -271,6 +282,8 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 - 그러나 안정성 측면에서는 여전히 Kafka 브로커와는 별도로 KRaft 컨트롤러 노드를 운영하는 것이 권장됩니다. 
 - Apache Kafka는 2021년 2.8 버전에서 KRaft 모드를 처음 도입했으며, 2024년에 발표된 Kafka 4.0부터는 Zookeeper 지원이 완전히 중단되고 KRaft 모드만을 지원하게 되었습니다.
 ```
+
+---
 
 ## **KRaft의 구성**
 
@@ -383,6 +396,8 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 - 이는 시스템의 높은 가용성과 안정성을 유지하기 위한 모범 사례와 상충될 수 있으므로, 추천하는 방식은 아닙니다.
 - 보통 이 경우는 작은 규모의 Kafka 클러스터를 운영하거나, 개발 용도의 경우 적합합니다.
 
+---
+
 ## **KRaft 서버 권장 사양**
 
 KRaft가 Kafka와 같이 많은 데이터를 처리하지 않으므로 권장 사양은 생각보다 높지 않습니다.
@@ -430,6 +445,7 @@ KRaft가 Kafka와 같이 많은 데이터를 처리하지 않으므로 권장 �
 </blockquote>
 </details>
 
+---
 
 ## **KRaft 릴리스 정보와 향후 계획**
 
@@ -447,6 +463,8 @@ KRaft는 2021년 Apache Kafka 2.8 버전과 같이 공개되었습니다.
 Apache Kafka 3.7 버전이 Zookeeper 모드를 지원하는 마지막 버전이고, 이후 Kafka 4.0 버전의 경우는 KRaft 모드로만 사용해야 합니다.
 
 현재까지는 Zookeeper 모드로 사용해도 무방하지만, Kafka 4.0 공개 후 Kafka의 필수 최신 기능 등을 사용하기 위해서는 KRaft 모드로의 마이그레이션이 필수입니다.
+
+---
 
 ## **Zookeeper 모드 -> KRaft 모드 마이그레이션**
 
@@ -583,12 +601,12 @@ CurrentObservers:       [1,2,3]
 
 업그레이드 전 고려 사항이나 필요한 작업 등은 향후 공개될 Apache Kafka 4.0 버전의 릴리스를 보면서 진행하면 될 것 같습니다.
 
-### **참고(KRaft의 발음에 대해)**
+---
 
-발음의 통일은 효과적인 커뮤니케이션을 용이하게 하고 기술적 대화의 명확성에 기여한다고 생각합니다.
+## **참고(KRaft의 발음에 대해)**
 
-결론부터 말씀드리자면, KRaft의 발음은 '크래프트'가 맞습니다!
-
-또한 [해외 사이트](https://www.baeldung.com/kafka-shift-from-zookeeper-to-kraft)와 컨플루언트(Confluent)의 공식 [YouTube 채널](https://www.youtube.com/watch?v=EUwwNnVyc4c)에서도 '크래프트'라는 발음이 권장되고 있는 것을 확인할 수 있습니다
+- 발음의 통일은 효과적인 커뮤니케이션을 용이하게 하고 기술적 대화의 명확성에 기여한다고 생각합니다.
+- 결론부터 말씀드리자면, KRaft의 발음은 '크래프트'가 맞습니다!
+- 또한 [해외 사이트](https://www.baeldung.com/kafka-shift-from-zookeeper-to-kraft)와 컨플루언트(Confluent)의 공식 [YouTube 채널](https://www.youtube.com/watch?v=EUwwNnVyc4c)에서도 '크래프트'라는 발음이 권장되고 있는 것을 확인할 수 있습니다
 
 > Kafka, in its architecture, has recently shifted from ZooKeeper to a quorum-based controller that uses a new consensus protocol called Kafka Raft, shortened as Kraft (pronounced “craft”).
