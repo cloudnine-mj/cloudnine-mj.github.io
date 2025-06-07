@@ -569,7 +569,7 @@ CurrentObservers:       [1,2,3]
 
 발음의 통일은 효과적인 커뮤니케이션을 용이하게 하고 기술적 대화의 명확성에 기여한다고 생각합니다.
 
-결론부터 말씀드리자면, KRaft의 발음은 '크래프트'가 맞습니다.
+결론부터 말씀드리자면, KRaft의 발음은 '크래프트'가 맞습니다!
 
 또한 [해외 사이트](https://www.baeldung.com/kafka-shift-from-zookeeper-to-kraft)와 컨플루언트(Confluent)의 공식 [YouTube 채널](https://www.youtube.com/watch?v=EUwwNnVyc4c)에서도 '크래프트'라는 발음이 권장되고 있는 것을 확인할 수 있습니다
 
