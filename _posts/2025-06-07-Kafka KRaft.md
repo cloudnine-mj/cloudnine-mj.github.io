@@ -5,10 +5,7 @@ excerpt: 'KRaft에 대하여😎'
 tags: [Kafka]
 ---
 
-
-# Kafka의 새로운 협의 프로토콜인 KRaft
-
-## 첫 번째 스터디 목표
+# 첫 번째 스터디 목표
 
 - KRaft의 등장과 Zookeeper를 사용하면서의 몇 가지 단점들에 대해 살펴보고, Zookeeper 모드와 KRaft 모드의 주요 차이점을 살펴본다.
     - Kafka를 사용하면서 초기에는 최신 버전의 릴리스를 추구했지만, Kafka가 점점 데이터 파이프라인의 중심이 되면서 보다 보수적으로 접근할 필요성이 있음.
@@ -56,13 +53,13 @@ tags: [Kafka]
 </details>
 
 
-## **KRaft의 등장과 배경**
+## KRaft의 등장과 배경
 
 - KRaft (Kafka Raft)는 Apache Kafka의 분산 시스템을 관리하기 위해 도입된 새로운 메커니즘입니다.
 - 이전까지 Kafka는 Apache ZooKeeper를 사용하여 클러스터 메타데이터의 관리와 조정을 담당했습니다.
 
 ```
-Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을 가져왔고, 이를 해결하기 위해 Kafka 자체 내에서 분산 시스템의 상태를 관리하는 방식을 도입하기로 결정됐습니다.
+Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을 가져왔고,<br>이를 해결하기 위해 Kafka 자체 내에서 분산 시스템의 상태를 관리하는 방식을 도입하기로 결정됐습니다.
 ```
 
 ### 😳 Zookeeper 사용 시 이슈가 되는 부분들
@@ -109,7 +106,6 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 - 임시노드에 가장 먼저 연결에 성공한 브로커가 컨트롤러가 되고, 다른 브로커들은 해당 임시노드에 이미 컨트롤러가 있다는 사실을 통해 Kafka 클러스터 내 컨트롤러가 있다는 것을 인식하게 됩니다.
 
 👉 한 번에 하나의 컨트롤러만 클러스터에 있도록 보장할 수 있도록 한다! 
-
 👉 Zookeeper가 중간에서 컨트롤러를 뽑아주고, 그 컨트롤러가 Kafka 클러스터를 조율하는 방식!
 
 ### **2. KRaft 모드**
@@ -122,61 +118,72 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 - **리더 역할을 하는 컨트롤러가 write 하는 역할도 하게 됩니다.**
 
 <details>
-<summary>📝 리더 컨트롤러가 Write도 담당하는 이유</summary>
+<summary> 리더 컨트롤러가 Write도 담당하는 이유</summary>
 
-####  기본 개념
+<h4>기본 개념</h4>
 
-**`리더 역할을 하는 컨트롤러가 write도 담당한다`**는 것은  단순해 보이지만, **KRaft 모드에서 핵심적인 설계 변화** 중 하나임.
+<strong><code>리더 역할을 하는 컨트롤러가 write도 담당한다</code></strong>는 것은 단순해 보이지만,  
+<strong>KRaft 모드에서 핵심적인 설계 변화</strong> 중 하나임.
 
+<h4>기존 (Zookeeper 모드) 구조에서는?</h4>
 
-#### 기존(Zookeeper 모드) 구조에서는?
+<ul>
+  <li>메타데이터 (토픽, 파티션, 리더 정보 등)는 <strong>Zookeeper가 저장함</strong></li>
+  <li>Kafka 컨트롤러는 <strong>Zookeeper에 쓰라고 요청만 함</strong></li>
+  <li><strong>Kafka 자체는 메타데이터를 직접 쓰지 않음</strong><br/>
+    → Zookeeper가 중심에 있었음</li>
+</ul>
 
-- 메타데이터(토픽, 파티션, 리더 정보 등)는 **Zookeeper가 저장함**
-- Kafka 컨트롤러는 **Zookeeper에 쓰라고 요청만 함**
-- 즉, **Kafka 자체는 메타데이터를 직접 쓰지 않음**  
-  → Zookeeper가 중심에 있었음
+<h4>KRaft 모드에서는?</h4>
 
+<ul>
+  <li><strong>Zookeeper 제거됨</strong></li>
+  <li>Kafka 내부에 <strong>KRaft 컨트롤러가 메타데이터 직접 관리</strong></li>
+  <li>Kafka가 <strong>자체적으로 메타데이터를 직접 write</strong>해야 함</li>
+</ul>
 
-#### KRaft 모드에서는?
+<h4>그런데 왜 <code>리더 컨트롤러만 write</code>할까?</h4>
 
-- **Zookeeper 제거됨**
-- Kafka 내부에 **KRaft 컨트롤러가 메타데이터 직접 관리함.**
-- Kafka가 **자체적으로 메타데이터를 직접 write**해야 함.
+<ul>
+  <li>이유: <strong>일관성과 충돌 방지</strong></li>
+</ul>
 
+<blockquote>
+여러 컨트롤러가 동시에 메타데이터를 수정하면<br/>
+→ 충돌 발생, 무결성 깨짐, 시스템 불안정
+</blockquote>
 
-#### 그런데 왜 `리더 컨트롤러만 write`할까?
+<ul>
+  <li><strong>하나의 컨트롤러(리더)만 write 가능</strong></li>
+  <li>나머지 컨트롤러는 <strong>read-only 복제본 유지</strong><br/>
+    → 장애 발생 시 <strong>빠르게 리더로 승격 가능</strong></li>
+</ul>
 
-- 이유: **일관성과 충돌 방지**
+<h4>핵심 구조</h4>
 
-> 여러 컨트롤러가 동시에 메타데이터를 수정하면  
-> → 충돌 발생, 무결성 깨짐, 시스템 불안정
+<ul>
+  <li><strong>리더 컨트롤러</strong>: 단 하나만 존재, write 가능</li>
+  <li><strong>팔로워 컨트롤러</strong>: 읽기만 함, standby 상태</li>
+</ul>
 
-- 그래서 **하나의 컨트롤러(리더)만 write 가능**
-- 나머지 컨트롤러는 **read-only 복제본 유지**  
-  → 장애 발생 시 **빠르게 리더로 승격 가능**
+→ 이 구조는 분산 시스템에서 흔히 쓰이는  
+<strong>"리더-팔로워 모델"</strong>
 
+<hr/>
 
-#### 핵심 구조
+<blockquote>
+여러 컨트롤러가 동시에 메타데이터를 쓰면 혼란이 생기기 때문에,<br/>
+<strong>오직 리더 컨트롤러만 write를 하도록 설계됨</strong><br/>
+→ 이는 <strong>분산 시스템의 일관성, 신뢰성, 장애 대응을 위한 핵심 원칙!</strong>
+</blockquote>
 
-- **리더 컨트롤러**: 단 하나만 존재, write 가능  
-- **팔로워 컨트롤러**: 읽기만 함, standby 상태  
-  → 이 구조는 분산 시스템에서 흔히 쓰이는  
-  **"리더-팔로워 모델"**
-
----
-
-> 여러 컨트롤러가 동시에 메타데이터를 쓰면 혼란이 생기기 때문에,  
-> **오직 리더 컨트롤러만 write를 하도록 설계됨**  
-> → 이는 **분산 시스템의 일관성, 신뢰성, 장애 대응을 위한 핵심 원칙!**
 </details>
-
 
 - 또한 Zookeeper 노드에서는 메타 데이터 관리를 Zookeeper가 했다면, 이제는 Kafka 내부의 별도 토픽을 이용하여 메타 데이터를 관리합니다.
 - 액티브인 컨트롤러가 장애 또는 종료되는 경우, 내부에서는 새로운 합의 알고리즘을 통해 새로운 리더를 선출하게 됩니다.
     - 리더를 선출하는 과정을 간략히 설명드리자면, 후보자들은 적합한 리더를 투표하게 되고 후보자 중 충분한 표를 얻으면, 해당 컨트롤러가 새로운 리더가 됩니다.
 
 👉 Zookeeper 없이 Kafka가 알아서 리더 뽑고, 메타데이터도 자체적으로 관리함.
-
 👉 리더 죽으면 컨트롤러들끼리 투표해서 새 리더 뽑는 구조임!
 
 ## **KRaft의 성능**
@@ -190,37 +197,47 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 ![성능비교.png](Kafka%E1%84%8B%E1%85%B4%20%E1%84%89%E1%85%A2%E1%84%85%E1%85%A9%E1%84%8B%E1%85%AE%E1%86%AB%20%E1%84%92%E1%85%A7%E1%86%B8%E1%84%8B%E1%85%B4%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%90%E1%85%A9%E1%84%8F%E1%85%A9%E1%86%AF%E1%84%8B%E1%85%B5%E1%86%AB%20KRaft%2020a22d577d0e80ae9081e970abdc1e1e/%E1%84%89%E1%85%A5%E1%86%BC%E1%84%82%E1%85%B3%E1%86%BC%E1%84%87%E1%85%B5%E1%84%80%E1%85%AD.png)
 
 <details>
-<summary> 성능 비교 그래프 해석</summary>
+<summary>성능 비교 그래프 해석</summary>
 
-#### 그래프 구성 설명
+<h4>그래프 구성 설명</h4>
 
-- **X축**
-  - Controlled Shutdown Time (정상 종료 시간)
-  - Recovery Time after Uncontrolled Shutdown (비정상 종료 후 복구 시간)
+<ul>
+  <li><strong>X축</strong><br/>
+    - Controlled Shutdown Time (정상 종료 시간)<br/>
+    - Recovery Time after Uncontrolled Shutdown (비정상 종료 후 복구 시간)
+  </li>
+  <li><strong>Y축</strong><br/>
+    - 시간 (초 단위, Seconds)
+  </li>
+  <li><strong>막대 색상</strong><br/>
+    - 회색: <strong>Zookeeper 기반 Kafka</strong><br/>
+    - 남색: <strong>KRaft (Quorum Controller) 기반 Kafka</strong>
+  </li>
+</ul>
 
-- **Y축**
-  - 시간 (초 단위, Seconds)
+<h4>결과 해석</h4>
 
-- **막대 색상**
-  - 회색: **Zookeeper 기반 Kafka**
-  - 남색: **KRaft(Quorum Controller) 기반 Kafka**
+<ol>
+  <li>
+    <strong>정상 종료 시간 (Controlled Shutdown Time)</strong><br/>
+    - Zookeeper 기반: <strong>약 180초 (3분)</strong><br/>
+    - KRaft 기반: <strong>약 20초 미만</strong><br/>
+    → <strong>KRaft가 훨씬 빠르게 종료됨</strong>
+  </li>
 
-#### 결과 해석
+  <li>
+    <strong>비정상 종료 후 복구 시간 (Recovery Time after Uncontrolled Shutdown)</strong><br/>
+    - Zookeeper 기반: <strong>약 500초 (8분 이상)</strong><br/>
+    - KRaft 기반: <strong>약 40초</strong><br/>
+    → <strong>KRaft가 훨씬 빠르게 복구됨</strong>
+  </li>
+</ol>
 
-1. **정상 종료 시간 (Controlled Shutdown Time)**
-   - Zookeeper 기반: **약 180초 (3분)**  
-   - KRaft 기반: **약 20초 미만**  
-   → **KRaft가 훨씬 빠르게 종료됨**
-
-2. **비정상 종료 후 복구 시간 (Recovery Time after Uncontrolled Shutdown)**
-   - Zookeeper 기반: **약 500초 (8분 이상)**  
-   - KRaft 기반: **약 40초**  
-   → **KRaft가 훨씬 빠르게 복구됨**
-
-
-> **KRaft 모드(Kafka Quorum Controller)**는  
-> **Zookeeper보다 훨씬 빠르게 종료 및 복구 가능**  
-> 특히 **대규모 파티션(200만 개)** 상황에서도 **성능이 매우 안정적**임
+<blockquote>
+<strong>KRaft 모드(Kafka Quorum Controller)</strong>는<br/>
+<strong>Zookeeper보다 훨씬 빠르게 종료 및 복구 가능</strong><br/>
+특히 <strong>대규모 파티션(200만 개)</strong> 상황에서도 <strong>성능이 매우 안정적</strong>임
+</blockquote>
 </details>
 
 - 컨플루언트에서 공개한 KRaft 모드와 Zookeeper 모드 간의 속도를 비교한 [그림](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)을 살펴보면, 복구 소요시간에서 엄청난 차이를 나타내고 있음을 알 수 있습니다.
@@ -245,11 +262,14 @@ Zookeeper의 의존성은 Kafka의 확장성과 유지보수에 여러 제약을
 👉 KRaft 모드는 메타데이터를 직접 메모리에 가지고 있고, Zookeeper 없이 동작하기 때문에 더 빠르며, 장애 발생 시 복구도 빨라졌습니다.
 
 
-## 두 번째 스터디 목표
+# 두 번째 스터디 목표
+
 - Zookeeper를 사용하는 Kafka 모드에서 새롭게 도입된 KRaft 모드로 전환하는 방법에 대해 설명한다.
 
 ```
-KRaft 모드를 사용하면 물리적인 서버의 관리 효율성을 높이고 리소스를 절약할 수 있습니다. 그러나 안정성 측면에서는 여전히 Kafka 브로커와는 별도로 KRaft 컨트롤러 노드를 운영하는 것이 권장됩니다. Apache Kafka는 2021년 2.8 버전에서 KRaft 모드를 처음 도입했으며, 2024년에 발표된 Kafka 4.0부터는 Zookeeper 지원이 완전히 중단되고 KRaft 모드만을 지원하게 되었습니다.
+- KRaft 모드를 사용하면 물리적인 서버의 관리 효율성을 높이고 리소스를 절약할 수 있습니다. 
+- 그러나 안정성 측면에서는 여전히 Kafka 브로커와는 별도로 KRaft 컨트롤러 노드를 운영하는 것이 권장됩니다. 
+- Apache Kafka는 2021년 2.8 버전에서 KRaft 모드를 처음 도입했으며, 2024년에 발표된 Kafka 4.0부터는 Zookeeper 지원이 완전히 중단되고 KRaft 모드만을 지원하게 되었습니다.
 ```
 
 ## **KRaft의 구성**
@@ -273,34 +293,40 @@ KRaft 모드를 사용하면 물리적인 서버의 관리 효율성을 높이�
 ![별도구성.png](Kafka%E1%84%8B%E1%85%B4%20%E1%84%89%E1%85%A2%E1%84%85%E1%85%A9%E1%84%8B%E1%85%AE%E1%86%AB%20%E1%84%92%E1%85%A7%E1%86%B8%E1%84%8B%E1%85%B4%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%90%E1%85%A9%E1%84%8F%E1%85%A9%E1%86%AF%E1%84%8B%E1%85%B5%E1%86%AB%20KRaft%2020a22d577d0e80ae9081e970abdc1e1e/%E1%84%87%E1%85%A7%E1%86%AF%E1%84%83%E1%85%A9%E1%84%80%E1%85%AE%E1%84%89%E1%85%A5%E1%86%BC.png)
 
 <details>
-<summary>아키텍처 해석</summary>
+<summary> 아키텍처 해석</summary>
 
-**👉 KRaft 컨트롤러 노드와 브로커 노드를 서로 다른 서버에 배치**한 구조
+<p><strong> KRaft 컨트롤러 노드와 브로커 노드를 서로 다른 서버에 배치</strong>한 구조</p>
 
+<h4>Kafka 클러스터 전체 (빨간색 테두리)</h4>
 
-### Kafka 클러스터 전체 (빨간색 테두리)
+<ul>
+  <li>Kafka 클러스터 전체를 나타냄</li>
+  <li>내부에 <strong>KRaft 컨트롤러들</strong>과 <strong>브로커들</strong>이 포함되어 있음</li>
+</ul>
 
-- Kafka 클러스터 전체를 나타냄.  
-- 내부에 **KRaft 컨트롤러들**과 **브로커들**이 포함되어 있음.
+<h4>핵심 구성 요소</h4>
 
-### 핵심 구성 요소
+<h5>1. KRaft 영역 (위쪽 상단)</h5>
 
-#### 1. KRaft 영역 (위쪽 상단)
+<ul>
+  <li>컨트롤러 노드가 3개 있음:<br/>
+    <code>컨트롤러</code>, <code>컨트롤러</code>, <code>컨트롤러(노란색)</code><br/>
+    → 이 중 <strong>노란색 컨트롤러는 "리더" 역할</strong>을 맡고 있는 <strong>액티브 컨트롤러!</strong>
+  </li>
+  <li>이 컨트롤러들은 Kafka 클러스터의<br/>
+    <strong>메타데이터 관리와 리더 선출 등을 담당</strong>함
+  </li>
+</ul>
 
-- 컨트롤러 노드가 3개 있음  
-  `컨트롤러`, `컨트롤러`, `컨트롤러(노란색)`  
-  → 이 중 **노란색 컨트롤러는 "리더" 역할을 맡고 있는 액티브 컨트롤러!**
+<h5>2. 브로커 영역 (하단)</h5>
 
-- 이 컨트롤러들은 Kafka 클러스터의  
-  **메타데이터 관리와 리더 선출 등을 담당**함.
-
-#### 2. 브로커 영역 (하단)
-
-- 브로커1 ~ 브로커5:  
-  실제 데이터를 처리하고,  
-  프로듀서/컨슈머와 통신하는 Kafka 서버들
+<ul>
+  <li>브로커1 ~ 브로커5:<br/>
+    실제 데이터를 처리하고,<br/>
+    프로듀서/컨슈머와 통신하는 Kafka 서버들
+  </li>
+</ul>
 </details>
-
 
 - 별도 구성이란? 컨트롤러(KRaft 서버)와 브로커(Kafka 서버)를 서로 다른 서버에서 따로 운영하는 방식입니다.
     - 컨트롤러 서버 → 클러스터의 리더 선출, 메타데이터 관리 등
@@ -317,34 +343,39 @@ KRaft 모드를 사용하면 물리적인 서버의 관리 효율성을 높이�
 ![통합구성.png](Kafka%E1%84%8B%E1%85%B4%20%E1%84%89%E1%85%A2%E1%84%85%E1%85%A9%E1%84%8B%E1%85%AE%E1%86%AB%20%E1%84%92%E1%85%A7%E1%86%B8%E1%84%8B%E1%85%B4%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%90%E1%85%A9%E1%84%8F%E1%85%A9%E1%86%AF%E1%84%8B%E1%85%B5%E1%86%AB%20KRaft%2020a22d577d0e80ae9081e970abdc1e1e/%E1%84%90%E1%85%A9%E1%86%BC%E1%84%92%E1%85%A1%E1%86%B8%E1%84%80%E1%85%AE%E1%84%89%E1%85%A5%E1%86%BC.png)
 
 <details>
-<summary> 아키텍처 해석</summary>
+<summary>아키텍처 해석</summary>
 
-👉 **컨트롤러와 브로커를 같은 서버에 함께 두는 방식**
+<p><strong>컨트롤러와 브로커를 같은 서버에 함께 두는 방식</strong></p>
 
+<h4>전체 테두리: Kafka 클러스터 전체</h4>
 
-### 전체 테두리: Kafka 클러스터 전체
+<ul>
+  <li>클러스터 내부에는 컨트롤러(KRaft)와 브로커가 존재함</li>
+  <li>여기서 컨트롤러와 브로커가 <strong>같은 서버 안에서 함께 실행</strong>됨</li>
+</ul>
 
-- 클러스터 내부에는 컨트롤러(KRaft)와 브로커가 존재함  
-- 여기서 컨트롤러와 브로커가 **같은 서버 안에서 함께 실행**됨
+<h4>주요 구성 요소</h4>
 
+<h5>1. 브로커 + 컨트롤러가 함께 있는 노드들</h5>
 
-### 주요 구성 요소
+<ul>
+  <li>브로커1 + 컨트롤러</li>
+  <li>브로커3 + 컨트롤러 (노란색 = <strong>액티브 리더 컨트롤러</strong>)</li>
+  <li>브로커4 + 컨트롤러</li>
+</ul>
 
-#### 1. 브로커 + 컨트롤러가 함께 있는 노드들
+<p>→ 이 Kafka 노드들은<br/>
+<strong>데이터도 처리하고 (Kafka 브로커)</strong><br/>
+<strong>동시에 클러스터 메타데이터도 관리 (KRaft 컨트롤러)</strong> 함.</p>
 
-- 브로커1 + 컨트롤러  
-- 브로커3 + 컨트롤러 (노란색 = **액티브 리더 컨트롤러**)  
-- 브로커4 + 컨트롤러  
+<h5>2. 브로커만 있는 노드들</h5>
 
-→ 이 Kafka 노드들은  
-**데이터도 처리하고(Kafka 브로커)**  
-동시에 **클러스터 메타데이터도 관리(KRaft 컨트롤러)** 함.
-
-#### 2. 브로커만 있는 노드들
-
-- 브로커2, 브로커5는 컨트롤러 역할 없음  
-- 이 노드들은 순수하게 Kafka 데이터 처리만 수행
+<ul>
+  <li>브로커2, 브로커5는 컨트롤러 역할 없음</li>
+  <li>이 노드들은 순수하게 Kafka 데이터 처리만 수행</li>
+</ul>
 </details>
+
 
 - 통합구성이란? 컨트롤러(KRaft 역할)와 브로커(Kafka 역할)를 같은 서버에서 함께 실행하는 구성입니다.
     - Kafka를 설치한 서버가 **브로커 역할**도 하고, 동시에 **KRaft 컨트롤러 역할도 같이 함.**
@@ -365,31 +396,38 @@ KRaft가 Kafka와 같이 많은 데이터를 처리하지 않으므로 권장 �
 <details>
 <summary>Dedicated CPU란?</summary>
 
-- 특정 프로세스나 컨테이너가 사용하는 **CPU 코어를 다른 작업과 공유하지 않고 독점적으로 사용하는 것**
+<ul>
+  <li>특정 프로세스나 컨테이너가 사용하는 <strong>CPU 코어를 다른 작업과 공유하지 않고 독점적으로 사용하는 것</strong></li>
+</ul>
 
-### 일반적인 상황
+<h4>일반적인 상황</h4>
 
-- 보통 서버에서는 여러 프로세스(예: Kafka, 다른 애플리케이션)가  
-  **같은 CPU 코어를 함께 씀** → 이를 **Shared CPU**라고 함  
-  → **성능이 들쑥날쑥**하고 예측하기 어려움
+<ul>
+  <li>보통 서버에서는 여러 프로세스 (예: Kafka, 다른 애플리케이션)가 <strong>같은 CPU 코어를 함께 씀</strong>  
+    → 이를 <strong>Shared CPU</strong>라고 함</li>
+  <li>→ <strong>성능이 들쑥날쑥</strong>하고 예측하기 어려움</li>
+</ul>
 
-### Dedicated CPU란?
+<h4>Dedicated CPU란?</h4>
 
-- Kafka 같은 중요한 서비스에 **특정 CPU 코어를 하나 또는 여러 개 전용으로 할당**  
-- **다른 작업이 그 코어를 사용하지 못하도록 막음**  
-→ 결과적으로 **성능이 안정적이고 예측 가능함**
+<ul>
+  <li>Kafka 같은 중요한 서비스에 <strong>특정 CPU 코어를 하나 또는 여러 개 전용으로 할당</strong></li>
+  <li><strong>다른 작업이 그 코어를 사용하지 못하도록 막음</strong></li>
+  <li>→ 결과적으로 <strong>성능이 안정적이고 예측 가능함</strong></li>
+</ul>
 
+<h4>언제 쓰냐?</h4>
 
-### 언제 쓰냐?
+<ul>
+  <li>Kafka, Zookeeper, KRaft 같이 <strong>지연에 민감하고 고성능이 필요한 서비스</strong>에 적합</li>
+  <li><strong>리소스 경쟁 없이 안정적인 처리량 확보 가능</strong></li>
+  <li>→ 그래서 <strong>Dedicated CPU 설정을 권장</strong>함</li>
+</ul>
 
-- Kafka, Zookeeper, KRaft 같이 **지연에 민감하고 고성능이 필요한 서비스**에 적합  
-- **리소스 경쟁 없이 안정적인 처리량 확보** 가능  
-→ 그래서 **Dedicated CPU 설정을 권장**함
-
----
-
-> **Dedicated CPU = 해당 CPU 코어를 오직 Kafka만 쓰도록 고정하는 것**  
-> → 다른 서비스랑 나눠 쓰지 않으므로 **성능 안정성** 높아짐
+<blockquote>
+<strong>Dedicated CPU</strong> = 해당 CPU 코어를 오직 Kafka만 쓰도록 고정하는 것<br/>
+→ 다른 서비스랑 나눠 쓰지 않으므로 <strong>성능 안정성</strong> 높아짐
+</blockquote>
 </details>
 
 
@@ -416,7 +454,6 @@ Apache Kafka 3.7 버전이 Zookeeper 모드를 지원하는 마지막 버전이�
 - 하지만 현업에서 Kafka를 활발히 사용하시는 분들은 대부분 Zookeeper 모드를 사용하고 있을 거라 생각됩니다.
 
 ☑️ KRaft의 마이그레이션 상세 매뉴얼 형식보다는 전반적인 마이그레이션 방법에 대해 설명하겠습니다.
-
 ☑️ KRaft의 마이그레이션 방법은 다음과 같은 순서로 진행합니다.
 
 
@@ -431,32 +468,41 @@ Apache Kafka 3.7 버전이 Zookeeper 모드를 지원하는 마지막 버전이�
 <details>
 <summary> 브리지 모드(Bridge Mode)란?</summary>
 
-**Zookeeper 모드 → KRaft 모드로 전환**할 때  **중간 단계에서 둘 다 동시에 사용하는 혼합 모드**
+<p><strong>Zookeeper 모드 → KRaft 모드로 전환</strong>할 때  
+<strong>중간 단계에서 둘 다 동시에 사용하는 혼합 모드</strong></p>
 
-### 왜 필요한가?
+<h4>왜 필요한가?</h4>
 
-- Kafka의 기존 방식(Zookeeper)과 새로운 방식(KRaft)은 **완전히 다름**  
-  → API, 메타데이터 구조, 리더 선출 방식까지 다 바뀜  
-  → 그래서 **단순 업그레이드로는 전환 불가**
+<ul>
+  <li>Kafka의 기존 방식(Zookeeper)과 새로운 방식(KRaft)은 <strong>완전히 다름</strong></li>
+  <li>→ API, 메타데이터 구조, 리더 선출 방식까지 모두 변경됨</li>
+  <li>→ <strong>단순 업그레이드로는 전환 불가</strong></li>
+  <li>Kafka가 이 복잡함을 해결하려고 만든 전환용 구조가 바로 <strong>브리지 모드</strong><br/>
+    → Zookeeper와 KRaft를 <strong>동시에 돌릴 수 있게 해줌</strong></li>
+</ul>
 
-- Kafka가 이 복잡함을 해결하려고 만든 전환용 구조가 바로 **브리지 모드**  
-  → Zookeeper와 KRaft를 **동시에 돌릴 수 있게 해줌**
+<h4>브리지 모드에서 할 수 있는 일</h4>
 
-### 브리지 모드에서 할 수 있는 일
+<ul>
+  <li>Zookeeper가 기존 클러스터 메타데이터를 계속 관리</li>
+  <li>KRaft는 일부 기능을 학습하거나 병행 실행</li>
+  <li>사용자는 이 환경에서 점진적으로 Zookeeper 의존도를 줄이며<br/>
+    <strong>KRaft 기반 클러스터로 안전하게 전환 가능</strong></li>
+</ul>
 
-- Zookeeper가 기존 클러스터 메타데이터를 계속 관리함  
-- KRaft는 일부 기능을 학습하거나 병행 실행  
-- 사용자는 이 환경에서 점진적으로 Zookeeper 의존도를 줄이며  
-  **KRaft 기반 클러스터로 안전하게 전환 가능**
+<h4>브리지 모드를 쓰는 이유</h4>
 
-### 브리지 모드를 쓰는 이유
+<ul>
+  <li>Zookeeper에서 KRaft로 <strong>한 번에 이동하는 건 위험하고 어렵기 때문</strong></li>
+  <li><strong>운영 중단 없이, 안정적으로 이전</strong>하기 위한 방법</li>
+  <li>Kafka 3.6부터 <strong>브리지 모드 지원(GA)</strong><br/>
+    → Kafka 3.6이 Zookeeper to KRaft 전환에 가장 적합한 버전으로 추천됨</li>
+</ul>
 
-- Zookeeper에서 KRaft로 **한 번에 이동하는 건 위험하고 어렵기 때문**  
-- **운영 중단 없이, 안정적으로 이전**하기 위한 방법  
-- Kafka 3.6부터 **브리지 모드 지원(GA)**  
-  → Kafka 3.6이 Zookeeper to KRaft 전환에 가장 적합한 버전으로 추천됨
-
-> **브리지 모드 = Zookeeper와 KRaft를 동시에 사용해, 점진적으로 KRaft로 이전할 수 있게 해주는 Kafka의 전환용 모드**
+<blockquote>
+<strong>브리지 모드</strong> = Zookeeper와 KRaft를 동시에 사용해,<br/>
+<strong>점진적으로 KRaft로 이전할 수 있게 해주는 Kafka의 전환용 모드</strong>
+</blockquote>
 </details>
 
 
