@@ -403,37 +403,6 @@ def auto_assign_all_owners():
             print(f"Assigned owners to {dataset_urn}")
 
 auto_assign_all_owners()
-```
-
-### Glossary (용어 사전)
-
-#### Glossary 구조 설계
-```
-Business Glossary 구조:
-
-├── Sales (판매)
-│   ├── Customer (고객)
-│   │   ├── Active Customer (활성 고객)
-│   │   ├── Churn (이탈)
-│   │   └── LTV (고객 생애 가치)
-│   ├── Revenue (매출)
-│   │   ├── Gross Revenue (총 매출)
-│   │   ├── Net Revenue (순 매출)
-│   │   └── ARR (연간 반복 매출)
-│   └── Order (주문)
-│       ├── Conversion Rate (전환율)
-│       └── AOV (평균 주문 금액)
-│
-├── Marketing (마케팅)
-│   ├── Campaign (캠페인)
-│   ├── CTR (클릭률)
-│   ├── CAC (고객 획득 비용)
-│   └── ROAS (광고 수익률)
-│
-└── Product (상품)
-    ├── SKU (재고 관리 단위)
-    ├── Category (카테고리)
-    └── Inventory (재고)
 ~~~
 
 ### Glossary Term 생성
