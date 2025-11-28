@@ -2,7 +2,7 @@
 key: jekyll-text-theme
 title: 'Airflow와 Prometheus 연동'
 excerpt: ' Airflow와 Prometheus 연동으로 모니터링 자동화하기 😎'
-tags: [Airflow]
+tags: [Airflow, Prometheus]
 ---
 
 # Airflow와 Prometheus 연동
