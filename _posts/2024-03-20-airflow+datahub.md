@@ -10,7 +10,7 @@ tags: [Airflow, Datahub]
 ## 개념
 
 * DataHub는 LinkedIn에서 개발한 오픈소스 메타데이터 플랫폼
-* Airflow와 연동하여 데이터 파이프라인의 Lineage(계보), 스키마, 소유자 정보 등을 자동으로 수집하고 관리할 수 있음
+* Airflow와 연동하여 데이터 파이프라인의 Lineage(계보), 스키마, 소유자 정보 등을 자동으로 수집하고 관리할 수 있음.
 
 ## Datahub 설치
 
