@@ -301,12 +301,11 @@ airflow dags pause <dag_id>
 
 ### 7. Branch 전략
 
-```
+```bash
 main (production)
   ← develop (staging)
       ← feature/new-pipeline
       ← hotfix/critical-bug
-~~~
 ```
 
 ```yaml
