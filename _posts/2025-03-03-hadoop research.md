@@ -1,6 +1,6 @@
 ---
 key: jekyll-text-theme
-title: 'Hadoo이란?'
+title: 'Hadoop 이란?'
 excerpt: ' Hadoop study 😎'
 tags: [Hadoop]
 ---
