@@ -1,6 +1,6 @@
 ---
 key: jekyll-text-theme
-title: 'Hadoop Research'
+title: 'Hadoo이란?'
 excerpt: ' Hadoop study 😎'
 tags: [Hadoop]
 ---
@@ -79,7 +79,7 @@ tags: [Hadoop]
 1GB 크기의 server.log 파일을 HDFS에 저장하는 경우, 다음과 같은 과정을 거침.
 
 ```text
-- 원본 파일 (1GB = 1024MB)이 블록으로 분할됨 (128MB씩)
+원본 파일 (1GB = 1024MB)이 블록으로 분할됨 (128MB씩)
 - Block 1 (128MB)는 DataNode1, DataNode2, DataNode3에 저장됨
 - Block 2 (128MB)는 DataNode2, DataNode3, DataNode4에 저장됨
 - Block 3 (128MB)는 DataNode1, DataNode3, DataNode5에 저장됨
