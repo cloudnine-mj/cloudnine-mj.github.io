@@ -1,9 +1,9 @@
-
+---
 key: jekyll-text-theme
 title: 'Kafka의 새로운 협의 프로토콜인 KRaft -2'
 excerpt: 'KRaft에 대하여😎'
 tags: [Kafka]
-
+---
 
 # 두 번째 스터디 목표
 
