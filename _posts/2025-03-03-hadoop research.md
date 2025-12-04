@@ -231,6 +231,7 @@ cat input.txt | python3 mapper.py | sort | python3 reducer.py
 # spark   2
 ```
 
+
 **Hadoop Streaming으로 실행하기**
 
 
@@ -252,10 +253,10 @@ hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
 hdfs dfs -cat /user/output/wordcount/part-00000
 ```
 
-** 더 효율적인 Reducer 버전 (메모리 최적화)**
+**더 효율적인 Reducer 버전 (메모리 최적화)**
 
 ```python
-python#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 Reduce 함수: 스트리밍 방식으로 메모리 효율적으로 처리
