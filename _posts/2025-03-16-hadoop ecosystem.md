@@ -5,11 +5,13 @@ excerpt: ' Hadoop study 😎'
 tags: [Hadoop]
 ---
 
-# 6. Hadoop 에코시스템
+
+
+# Hadoop 에코시스템
 
 Hadoop 에코시스템은 HDFS와 MapReduce를 중심으로 다양한 도구들이 결합된 통합 빅데이터 플랫폼임. 각 도구는 특정 용도에 최적화되어 있으며, 함께 사용하면 강력한 데이터 처리 파이프라인을 구축할 수 있음.
 
-## 6.1 Hive - SQL 기반 데이터 웨어하우스
+## 1. Hive - SQL 기반 데이터 웨어하우스
 
 **개념**
 
@@ -132,7 +134,7 @@ LIMIT 10;
 
 ~~~
 
-## 6.2 HBase - 분산 NoSQL 데이터베이스
+## 2. HBase - 분산 NoSQL 데이터베이스
 
 **개념**
 
@@ -307,7 +309,7 @@ for key, data in table.scan():
 connection.close()
 ```
 
-## 6.3 Pig - 데이터 흐름 스크립팅
+## 3. Pig - 데이터 흐름 스크립팅
 
 **개념**
 
@@ -388,7 +390,7 @@ sorted_urls = ORDER url_stats BY hits DESC;
 STORE sorted_urls INTO '/output/url_stats';
 ```
 
-## 6.4 Sqoop - 데이터 전송 도구
+## 4. Sqoop - 데이터 전송 도구
 
 **개념**
 
@@ -398,11 +400,11 @@ Sqoop은 관계형 데이터베이스(MySQL, PostgreSQL, Oracle 등)와 Hadoop �
 
 ```bash
 # Sqoop 다운로드
-wget https://downloads.apache.org/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+wget https://downloads.apache.org/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.0.tar.gz
 
 # 압축 해제
-tar -xzvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
-sudo mv sqoop-1.4.7.bin__hadoop-2.6.0 /usr/local/sqoop
+tar -xzvf sqoop-1.4.7.bin__hadoop-2.0.tar.gz
+sudo mv sqoop-1.4.7.bin__hadoop-2.0 /usr/local/sqoop
 
 # 환경변수 설정
 echo 'export SQOOP_HOME=/usr/local/sqoop' >> ~/.bashrc
@@ -488,7 +490,7 @@ sqoop export \
 
 ~~~
 
-## 6.5 Flume - 로그 수집 도구
+## 5. Flume - 로그 수집 도구
 
 **개념**
 
@@ -600,7 +602,7 @@ telnet localhost 44444
 Hello Flume!
 ```
 
-## 6.6 Oozie - 워크플로우 스케줄러
+## 6. Oozie - 워크플로우 스케줄러
 
 **개념**
 
@@ -657,7 +659,7 @@ Oozie는 Hadoop 작업을 조정하고 스케줄링하는 워크플로우 엔진
 </coordinator-app>
 ```
 
-## 6.7 Zookeeper - 분산 코디네이션
+## 7. Zookeeper - 분산 코디네이션
 
 **개념**
 
