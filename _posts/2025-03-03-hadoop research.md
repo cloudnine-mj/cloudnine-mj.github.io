@@ -139,3 +139,157 @@ MapReduce는 대용량 데이터를 분산 환경에서 병렬로 처리하기 �
 │                    result.txt                            │
 └─────────────────────────────────────────────────────────┘
 ```
+
+**Python으로 작성한 WordCount 예제**
+
+* Hadoop Streaming을 이용하면 Python으로 MapReduce 작업을 작성할 수 있음. Hadoop Streaming은 표준 입출력(stdin/stdout)을 통해 데이터를 주고받는 방식으로 동작함.
+
+**mapper.py**
+
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Map 함수: 각 라인을 읽어서 단어별로 (단어, 1) 쌍을 출력
+"""
+import sys
+
+def mapper():
+    # 표준 입력으로부터 한 줄씩 읽음
+    for line in sys.stdin:
+        # 공백 제거
+        line = line.strip()
+        # 단어 단위로 분리
+        words = line.split()
+        
+        # 각 단어에 대해 (단어, 1) 쌍을 출력
+        for word in words:
+            # 탭으로 구분하여 출력 (키\t값 형태)
+            print(f"{word}\t1")
+
+if __name__ == "__main__":
+    mapper()
+```
+
+**reducer.py**
+
+
+```python
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Reduce 함수: 같은 단어의 개수를 합산
+"""
+import sys
+from collections import defaultdict
+
+def reducer():
+    word_count = defaultdict(int)
+    
+    # 표준 입력으로부터 한 줄씩 읽음
+    for line in sys.stdin:
+        # 공백 제거
+        line = line.strip()
+        
+        # 탭으로 구분된 단어와 개수를 분리
+        try:
+            word, count = line.split('\t')
+            count = int(count)
+            # 단어별로 개수를 누적
+            word_count[word] += count
+        except ValueError:
+            # 잘못된 형식의 라인은 건너뜀
+            continue
+    
+    # 결과 출력
+    for word, count in word_count.items():
+        print(f"{word}\t{count}")
+
+if __name__ == "__main__":
+    reducer()
+```
+
+**로컬에서 테스트하기**
+
+
+```bash
+# 실행 권한 부여
+chmod +x mapper.py reducer.py
+
+# 테스트 데이터 생성
+echo "hadoop spark hadoop
+spark kafka hadoop
+hadoop kafka kafka" > input.txt
+
+# 로컬에서 파이프라인 테스트
+cat input.txt | python3 mapper.py | sort | python3 reducer.py
+
+# 출력 결과:
+# hadoop  4
+# kafka   3
+# spark   2
+```
+
+**Hadoop Streaming으로 실행하기**
+
+
+```bash
+# HDFS에 입력 파일 업로드
+hdfs dfs -mkdir -p /user/input
+hdfs dfs -put input.txt /user/input/
+
+# Hadoop Streaming 작업 실행
+hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-*.jar \
+  -input /user/input/input.txt \
+  -output /user/output/wordcount \
+  -mapper mapper.py \
+  -reducer reducer.py \
+  -file mapper.py \
+  -file reducer.py
+
+# 결과 확인
+hdfs dfs -cat /user/output/wordcount/part-00000
+```
+
+** 더 효율적인 Reducer 버전 (메모리 최적화)**
+
+```python
+python#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Reduce 함수: 스트리밍 방식으로 메모리 효율적으로 처리
+"""
+import sys
+
+def reducer():
+    current_word = None
+    current_count = 0
+    
+    # 표준 입력으로부터 한 줄씩 읽음 (이미 정렬되어 들어옴)
+    for line in sys.stdin:
+        line = line.strip()
+        
+        try:
+            word, count = line.split('\t')
+            count = int(count)
+        except ValueError:
+            continue
+        
+        # 같은 단어가 계속되는 경우 개수만 누적
+        if current_word == word:
+            current_count += count
+        else:
+            # 새로운 단어가 나타나면 이전 단어의 결과를 출력
+            if current_word:
+                print(f"{current_word}\t{current_count}")
+            current_word = word
+            current_count = count
+    
+    # 마지막 단어 출력
+    if current_word:
+        print(f"{current_word}\t{current_count}")
+
+if __name__ == "__main__":
+    reducer()
+```
